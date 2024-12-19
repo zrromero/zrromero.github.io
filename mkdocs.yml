@@ -10,8 +10,8 @@ theme:
     accent: indigo
   font:
     text: Roboto
-  logo: logo.svg
-  favicon: logo.png
+  logo: static/logo.svg
+  favicon: static/logo.png
 
   features:
     - navigation.tabs
@@ -35,8 +35,6 @@ markdown_extensions:
       generic: true
   - pymdownx.tilde: {}
 
-
-
 draft_docs: |
   **/*_unpublished.md
   **/*_draft.md
@@ -45,7 +43,6 @@ draft_docs: |
 plugins:
   - search
   - glightbox # allow resize images, see https://squidfunk.github.io/mkdocs-material/reference/images/
-  # - offline
 
 extra_css:
   - stylesheets/extra.css  
@@ -57,9 +54,6 @@ extra_javascript:
 not_in_nav: |
   static
   
-#extra_css:     
-#  - style.css
-
 copyright: "Copyright &copy; 2024 team-name-here"
 
 extra:
