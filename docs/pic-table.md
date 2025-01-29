@@ -22,7 +22,7 @@ title: PIC Table
 | Works with Microchip Code Configurator?       | ?      | Can be validated in MPLabX.  Screenshot required.                                                         |
 
 
-| Peripheral | # Available | Needed | Associated Pins (or * for any) |
+| Module | # Available | Needed | Associated Pins (or * for any) |
 | ---------- | ----------- | ------ | ------------------------------ |
 | GPIO       | ?           | ?      | ?                              |
 | ADC        | ?           | ?      | ?                              |

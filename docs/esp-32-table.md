@@ -20,7 +20,7 @@ title: ESP32 Table
 | Supports External Interrupts?                 | ?      | as found in datasheet                                                                                     |
 | Required Programming Hardware, Cost, URL      | ?      | as found in datasheet                                                                                     |
 
-| Peripheral     | # Available | Needed | Associated Pins (or * for any) |
+| Module         | # Available | Needed | Associated Pins (or * for any) |
 | -------------- | ----------- | ------ | ------------------------------ |
 | UART           | ?           | ?      | ?                              |
 | external SPI\* | ?           | ?      | ?                              |
