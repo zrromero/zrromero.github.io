@@ -39,7 +39,7 @@ For the motor drive subsystem, the main components will be the motors and the mo
 |--|-------|-----------------|--------------------------------|------------------------------|
 | LM2674MX-3.3/NOPB ![Voltage Regulator 1](images/components/LM2674MX-3.3.jpg){: style="max-width: 100px; max-height: 100px;" } | $3.37 | [Digikey](https://www.digikey.com/en/products/detail/texas-instruments/LM2674MX-3-3-NOPB/366902) / [Datasheet](https://www.ti.com/lit/ds/symlink/lm2674.pdf?HQS=dis-dk-null-digikeymode-dsf-pf-null-wwe&ts=1738969322841&ref_url=http%253A%252F%252Fwww.wjs2ic.com%252F){: style="max-width: 100px; max-height: 100px;" } |  - <br> - <br> - |  - <br> - <br> - |
 | MIC4680-3.3YM ![Voltage Regulator 2](images/components/MIC4680-3.3YM.jpg){: style="max-width: 100px; max-height: 100px;" }  | $2.96 | [Digikey](https://www.digikey.com/en/products/detail/microchip-technology/MIC4680-3-3YM/771689) / [Datasheet](https://ww1.microchip.com/downloads/en/DeviceDoc/mic4680.pdf) |  - <br> - <br> - |  - <br> - <br> - |
-| ADPL44002AUJZ-3.3-R7 ![Voltage Regulator 3](images/components/ADPL44002AUJZ-3.3-R7.jpg) | $1.51 | [Digikey](https://www.digikey.com/en/products/detail/analog-devices-inc/ADPL44002AUJZ-3-3-R7/25803461) / [Datasheet](https://www.mouser.com/datasheet/2/609/1/adpl44002-3535120.pdf) | - <br> - <br> -  |  - <br> - <br> - |
+| ADPL44002AUJZ-3.3-R7 ![Voltage Regulator 3](images/components/ADPL44002AUJZ-3.3-R7.jpg){: style="max-width: 100px; max-height: 100px;" } | $1.51 | [Digikey](https://www.digikey.com/en/products/detail/analog-devices-inc/ADPL44002AUJZ-3-3-R7/25803461) / [Datasheet](https://www.mouser.com/datasheet/2/609/1/adpl44002-3535120.pdf) | - <br> - <br> -  |  - <br> - <br> - |
 
 
 ### **Power Supply**
