@@ -79,11 +79,11 @@ Since this subsystem will be using a PIC, the following table has been filled ou
 
 | Module | # Available | Needed | Associated Pins (or * for any) |
 | ---------- | ----------- | ------ | ------------------------------ |
-| GPIO       | ?           | 4      | GPIORA2, GPIORA3, GPIORA4, GPIORA5  |
+| GPIO       | 44          | 4      | GPIORA2, GPIORA3, GPIORA4, GPIORA5  |
 | ADC        | ?           | 0      | N/A                             |
-| UART       | ?           | 1      | ?                              |
-| SPI        | ?           | 0     | N/A                            |
-| I2C        | ?           | 1      | SCL1C3, SDA1C4                 |
+| UART       | 2       | 1      | RX1C7, TX1C6                     |
+| SPI        | 2           | 0     | N/A                            |
+| I2C        | 2           | 1      | SCL1C3, SDA1C4                 |
 | PWM        | ?           | 0      | ?                              |
 | ICSP       | ?           | 1      | ?                              |
 | ...        | ...         | ...    | ...                            |
