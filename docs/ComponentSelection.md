@@ -5,6 +5,7 @@ For the motor drive subsystem, the main components will be the motors and the mo
 
 ### **Brushed DC Motor**
 | **Selected Product**     | **Rationale for Optimal Solution**                                              |
+|------------------|-------|
 |  |  |
 #### Benchmarked Products
 | Product          | Price | Links       | Pros                           | Cons                         |
@@ -16,6 +17,7 @@ For the motor drive subsystem, the main components will be the motors and the mo
 
 ### **Motor Driver**
 | **Selected Product**     | **Rationale for Optimal Solution**                                              |
+|------------------|-------|
 |  |  |
 #### Benchmarked Products
 | Product          | Price | Links       | Pros                           | Cons                         |
@@ -27,6 +29,7 @@ For the motor drive subsystem, the main components will be the motors and the mo
 
 ### **Voltage Regulator**
 | **Selected Product**     | **Rationale for Optimal Solution**                                              |
+|------------------|-------|
 |  |  |
 #### Benchmarked Products
 | Product          | Price | Links       | Pros                           | Cons                         |
@@ -38,6 +41,7 @@ For the motor drive subsystem, the main components will be the motors and the mo
 
 ### **Power Supply**
 | **Selected Product**     | **Rationale for Optimal Solution**                                              |
+|------------------|-------|
 |  |  |
 #### Benchmarked Products
 | Product          | Price | Links       | Pros                           | Cons                         |
