@@ -6,7 +6,7 @@ For the motor drive subsystem, the main components will be the motors and the mo
 ### **Brushed DC Motor**
 | **Selected Product**     | **Rationale for Optimal Solution**                                              |
 |------------------|-------|
-|  |  |
+| HC385G-302 ![BDC Motor 2](images/components/HC385G-302.jpg){: style="max-width: 100px; max-height: 100px;" } <br> Price: $7.01 <br> [Digikey](http://digikey.com/en/products/detail/johnson-motor/HC385G-302/12723725) / [Datasheet](https://www.johnsonelectric.com/pub/media/datasheetdownloadpdf/pdf/HC385G_302_metric_3__0.pdf) |  |
 
 #### Benchmarked Products
 | Product          | Price | Links       | Pros                           | Cons                         |
@@ -19,26 +19,26 @@ For the motor drive subsystem, the main components will be the motors and the mo
 ### **Motor Driver**
 | **Selected Product**     | **Rationale for Optimal Solution**                                              |
 |------------------|-------|
-|  |  |
+| DRV8830DGQR ![Motor Driver 2](images/components/DRV8830DGQR.jpg){: style="max-width: 100px; max-height: 100px;" } <br> Price: $2.09 <br> [Digikey](https://www.digikey.com/en/products/detail/texas-instruments/DRV8830DGQR/2520903) / [Datasheet](https://www.ti.com/lit/ds/symlink/drv8830.pdf?HQS=dis-dk-null-digikeymode-dsf-pf-null-wwe&ts=1738989981632&ref_url=https%253A%252F%252Fwww.ti.com%252Fgeneral%252Fdocs%252Fsuppproductinfo.tsp%253FdistId%253D10%2526gotoUrl%253Dhttps%253A%252F%252Fwww.ti.com%252Flit%252Fgpn%252Fdrv8830) |  |
 
 #### Benchmarked Products
 | Product          | Price | Links       | Pros                           | Cons                         |
 |--|-------|-----------------|--------------------------------|------------------------------|
-| NCV7719DQAR2G ![Motor Driver 1](images/components/NCV7719DQAR2G.jpg) | $5.99 | [Digikey](https://www.digikey.com/en/products/detail/onsemi/NCV7719DQAR2G/12529076) / [Datasheet](https://www.onsemi.com/download/data-sheet/pdf/ncv7719-d.pdf) | - <br> - <br> - | - <br> - <br> - |
-| DRV8830DGQR ![Motor Driver 2](images/components/DRV8830DGQR.jpg) | $2.09 | [Digikey](https://www.digikey.com/en/products/detail/texas-instruments/DRV8830DGQR/2520903) / [Datasheet](https://www.ti.com/lit/ds/symlink/drv8830.pdf?HQS=dis-dk-null-digikeymode-dsf-pf-null-wwe&ts=1738989981632&ref_url=https%253A%252F%252Fwww.ti.com%252Fgeneral%252Fdocs%252Fsuppproductinfo.tsp%253FdistId%253D10%2526gotoUrl%253Dhttps%253A%252F%252Fwww.ti.com%252Flit%252Fgpn%252Fdrv8830) | - <br> - <br> - | - <br> - <br> - |
-| NCV7708FDWR2G ![Motor Driver 3](images/components/NCV7708FDWR2G.jpg) | $5.83 | [Digikey](https://www.digikey.com/en/products/detail/onsemi/NCV7708FDWR2G/9829237) / [Datasheet](https://www.onsemi.com/pdf/datasheet/ncv7708f-d.pdf) | - <br> - <br> - | - <br> - <br> - |
+| NCV7719DQAR2G ![Motor Driver 1](images/components/NCV7719DQAR2G.jpg){: style="max-width: 100px; max-height: 100px;" } | $5.99 | [Digikey](https://www.digikey.com/en/products/detail/onsemi/NCV7719DQAR2G/12529076) / [Datasheet](https://www.onsemi.com/download/data-sheet/pdf/ncv7719-d.pdf) | - <br> - <br> - | - <br> - <br> - |
+| DRV8830DGQR ![Motor Driver 2](images/components/DRV8830DGQR.jpg){: style="max-width: 100px; max-height: 100px;" } | $2.09 | [Digikey](https://www.digikey.com/en/products/detail/texas-instruments/DRV8830DGQR/2520903) / [Datasheet](https://www.ti.com/lit/ds/symlink/drv8830.pdf?HQS=dis-dk-null-digikeymode-dsf-pf-null-wwe&ts=1738989981632&ref_url=https%253A%252F%252Fwww.ti.com%252Fgeneral%252Fdocs%252Fsuppproductinfo.tsp%253FdistId%253D10%2526gotoUrl%253Dhttps%253A%252F%252Fwww.ti.com%252Flit%252Fgpn%252Fdrv8830) | - <br> - <br> - | - <br> - <br> - |
+| NCV7708FDWR2G ![Motor Driver 3](images/components/NCV7708FDWR2G.jpg){: style="max-width: 100px; max-height: 100px;" } | $5.83 | [Digikey](https://www.digikey.com/en/products/detail/onsemi/NCV7708FDWR2G/9829237) / [Datasheet](https://www.onsemi.com/pdf/datasheet/ncv7708f-d.pdf) | - <br> - <br> - | - <br> - <br> - |
 
 
 ### **Voltage Regulator**
 | **Selected Product**     | **Rationale for Optimal Solution**                                              |
 |------------------|-------|
-|  |  |
+|  MIC4680-3.3YM ![Voltage Regulator 2](images/components/MIC4680-3.3YM.jpg){: style="max-width: 100px; max-height: 100px;" } <br> Price: $2.96 <br> [Digikey](https://www.digikey.com/en/products/detail/microchip-technology/MIC4680-3-3YM/771689) / [Datasheet](https://ww1.microchip.com/downloads/en/DeviceDoc/mic4680.pdf) |  |
 
 #### Benchmarked Products
 | Product          | Price | Links       | Pros                           | Cons                         |
 |--|-------|-----------------|--------------------------------|------------------------------|
-| LM2674MX-3.3/NOPB ![Voltage Regulator 1](images/components/LM2674MX-3.3.jpg) | $3.37 | [Digikey](https://www.digikey.com/en/products/detail/texas-instruments/LM2674MX-3-3-NOPB/366902) / [Datasheet](https://www.ti.com/lit/ds/symlink/lm2674.pdf?HQS=dis-dk-null-digikeymode-dsf-pf-null-wwe&ts=1738969322841&ref_url=http%253A%252F%252Fwww.wjs2ic.com%252F) |  - <br> - <br> - |  - <br> - <br> - |
-| MIC4680-3.3YM ![Voltage Regulator 2](images/components/MIC4680-3.3YM.jpg)  | $2.96 | [Digikey](https://www.digikey.com/en/products/detail/microchip-technology/MIC4680-3-3YM/771689) / [Datasheet](https://ww1.microchip.com/downloads/en/DeviceDoc/mic4680.pdf) |  - <br> - <br> - |  - <br> - <br> - |
+| LM2674MX-3.3/NOPB ![Voltage Regulator 1](images/components/LM2674MX-3.3.jpg){: style="max-width: 100px; max-height: 100px;" } | $3.37 | [Digikey](https://www.digikey.com/en/products/detail/texas-instruments/LM2674MX-3-3-NOPB/366902) / [Datasheet](https://www.ti.com/lit/ds/symlink/lm2674.pdf?HQS=dis-dk-null-digikeymode-dsf-pf-null-wwe&ts=1738969322841&ref_url=http%253A%252F%252Fwww.wjs2ic.com%252F){: style="max-width: 100px; max-height: 100px;" } |  - <br> - <br> - |  - <br> - <br> - |
+| MIC4680-3.3YM ![Voltage Regulator 2](images/components/MIC4680-3.3YM.jpg){: style="max-width: 100px; max-height: 100px;" }  | $2.96 | [Digikey](https://www.digikey.com/en/products/detail/microchip-technology/MIC4680-3-3YM/771689) / [Datasheet](https://ww1.microchip.com/downloads/en/DeviceDoc/mic4680.pdf) |  - <br> - <br> - |  - <br> - <br> - |
 | ADPL44002AUJZ-3.3-R7 ![Voltage Regulator 3](images/components/ADPL44002AUJZ-3.3-R7.jpg) | $1.51 | [Digikey](https://www.digikey.com/en/products/detail/analog-devices-inc/ADPL44002AUJZ-3-3-R7/25803461) / [Datasheet](https://www.mouser.com/datasheet/2/609/1/adpl44002-3535120.pdf) | - <br> - <br> -  |  - <br> - <br> - |
 
 
@@ -50,9 +50,9 @@ For the motor drive subsystem, the main components will be the motors and the mo
 #### Benchmarked Products
 | Product          | Price | Links       | Pros                           | Cons                         |
 |--|-------|-----------------|--------------------------------|------------------------------|
-|  |  | [Digikey]() / [Datasheet]() |  - <br> - <br> - |  - <br> - <br> - |
-|  |  | [Digikey]() / [Datasheet]() |  - <br> - <br> - |  - <br> - <br> - |
-|  |  | [Digikey]() / [Datasheet]() |  - <br> - <br> - |  - <br> - <br> - |
+|  ![Power Supply 1](images/components/.jpg){: style="max-width: 100px; max-height: 100px;" } |  | [Digikey]() / [Datasheet]() |  - <br> - <br> - |  - <br> - <br> - |
+|  ![Power Supply 1](images/components/.jpg){: style="max-width: 100px; max-height: 100px;" } |  | [Digikey]() / [Datasheet]() |  - <br> - <br> - |  - <br> - <br> - |
+|  ![Power Supply 1](images/components/.jpg){: style="max-width: 100px; max-height: 100px;" } |  | [Digikey]() / [Datasheet]() |  - <br> - <br> - |  - <br> - <br> - |
 
 ### **Microcontroller**
 | ESP Info                                      | Answer |
