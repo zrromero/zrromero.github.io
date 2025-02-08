@@ -324,6 +324,35 @@
   
     
     
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../images/components/componentimages/" class="md-tabs__link">
+          
+  
+    
+  
+  Images
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
       <li class="md-tabs__item">
         <a href="../subfolder/" class="md-tabs__link">
           
@@ -611,6 +640,50 @@
     
       
         
+      
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    
+  
+  
+    <a href="../images/components/componentimages/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Images
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
           
         
       
@@ -737,70 +810,18 @@
 
 <h1 id="component-selection"><strong>Component Selection</strong></h1>
 <h2 id="major-components"><strong>Major Components</strong></h2>
-<p>For the motor drive subsystem, the main components will be the motors and the motor driver. We also need to think about the voltage redulator and how we are powering the system.</p>
+<p>For the motor drive subsystem, the main components will be the motors and the motor driver. We also need to think about the voltage redulator and how we are powering the system. This system will be using a PIC Microcontroller from Microchip to communicate with the motor driver through Serial Peripheral Interface(SPI) or Inter-Integrated Circuit(I2C).</p>
 <h3 id="brushed-dc-motor"><strong>Brushed DC Motor</strong></h3>
-<table>
-<thead>
-<tr>
-<th>Product</th>
-<th>Price</th>
-<th>Datasheet</th>
-<th>Pros</th>
-<th>Cons</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>csda</td>
-<td>$1.23</td>
-<td>https://www.digikey.com/en/products/detail/sparkfun-electronics/ROB-11696/6163657</td>
-<td>good</td>
-<td>brushed</td>
-</tr>
-<tr>
-<td>das</td>
-<td>$2.34</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>sdgf</td>
-<td>$3.45</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>------------------</td>
-<td>-------</td>
-<td>-----------------</td>
-<td>--------------------------------</td>
-<td>------------------------------</td>
-</tr>
-<tr>
-<td><strong>Selected Product</strong></td>
-<td><strong>Rationale for Optimal Solution</strong></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>--------------------------</td>
-<td>---------------------------------------------------------------------------------</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>das</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<p>| Product          | Price | Datasheet       | Pros                           | Cons                         |
+| Product          | Price | Datasheet       | Pros                           | Cons                         |
+|------------------|-------|-----------------|--------------------------------|------------------------------|
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|------------------|-------|-----------------|--------------------------------|------------------------------|
+| <strong>Selected Product</strong>     | <strong>Rationale for Optimal Solution</strong>                                              |
+|--------------------------|---------------------------------------------------------------------------------|
+|  |  |</p>
 <h3 id="motor-driver"><strong>Motor Driver</strong></h3>
 <table>
 <thead>
@@ -877,14 +898,14 @@
 </thead>
 <tbody>
 <tr>
-<td></td>
+<td>LM2674MX-3.3/NOPB</td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td></td>
+<td>MIC4680-3.3YM</td>
 <td></td>
 <td></td>
 <td></td>
