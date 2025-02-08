@@ -56,11 +56,12 @@ For the motor drive subsystem, the main components will be the motors and the mo
 
 ### **Microcontroller**
 Since this subsystem will be using a PIC, the following table has been filled out to decide which ones can and/or will be used in the project
+
 | ESP Info                                      | Answer |
 | --------------------------------------------- | ------ | 
-| Model                                         | ?      | 
+| Model                                         | PIC18  | 
 | Product Page URL                              | ?      |
-| Datasheet URL(s)                              | ?      |
+| Datasheet URL(s)                              | [Microchip](https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ProductDocuments/DataSheets/PIC18F26-46-56Q71-Microcontroller-Data-Sheet-DS40002329.pdf)      |
 | Application Notes URL(s)                      | ?      |
 | Vendor link                                   | ?      |
 | Code Examples                                 | ?      |
@@ -78,14 +79,16 @@ Since this subsystem will be using a PIC, the following table has been filled ou
 
 | Module | # Available | Needed | Associated Pins (or * for any) |
 | ---------- | ----------- | ------ | ------------------------------ |
-| GPIO       | ?           | ?      | ?                              |
-| ADC        | ?           | ?      | ?                              |
-| UART       | ?           | ?      | ?                              |
-| SPI        | ?           | ?      | ?                              |
-| I2C        | ?           | ?      | ?                              |
-| PWM        | ?           | ?      | ?                              |
+| GPIO       | ?           | 4      | GPIORA2, GPIORA3, GPIORA4, GPIORA5  |
+| ADC        | ?           | 0      | N/A                             |
+| UART       | ?           | 1      | ?                              |
+| SPI        | ?           | 0     | N/A                            |
+| I2C        | ?           | 1      | SCL1C3, SDA1C4                 |
+| PWM        | ?           | 0      | ?                              |
 | ICSP       | ?           | 1      | ?                              |
 | ...        | ...         | ...    | ...                            |
 
+### **PIC Test**
+![PICtest](images/PIC18F56Q71PinTest.png)
 
 ###### This Page Uses Some AI generated Content
