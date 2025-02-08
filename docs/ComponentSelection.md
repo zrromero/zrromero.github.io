@@ -6,7 +6,7 @@ For the motor drive subsystem, the main components will be the motors and the mo
 ### **Brushed DC Motor**
 | **Selected Product**     | **Rationale for Optimal Solution**                                              |
 |------------------|-------|
-| HC385G-302 <br> ![BDC Motor 2](images/components/HC385G-302.jpg){: style="max-width: 250px; max-height: 250px;" } <br> Price: $7.01 <br> [Digikey](http://digikey.com/en/products/detail/johnson-motor/HC385G-302/12723725) / [Datasheet](https://www.johnsonelectric.com/pub/media/datasheetdownloadpdf/pdf/HC385G_302_metric_3__0.pdf) |  |
+| HC385G-302 <br> ![BDC Motor 2](images/components/HC385G-302.jpg){: style="max-width: 250px; max-height: 250px;" } <br> Price: $7.01 <br> [Digikey](http://digikey.com/en/products/detail/johnson-motor/HC385G-302/12723725) / [Datasheet](https://www.johnsonelectric.com/pub/media/datasheetdownloadpdf/pdf/HC385G_302_metric_3__0.pdf) | This motor offers reliable and smooth performance for your 2-motor drive system, providing good speed and torque control. It’s ideal for medium-load applications and will integrate well with a 12V supply to drive your motors effectively, while its reliability ensures long-lasting performance in your system. |
 
 #### Benchmarked Products
 | Product          | Price | Links       | Pros                           | Cons                         |
@@ -19,7 +19,7 @@ For the motor drive subsystem, the main components will be the motors and the mo
 ### **Motor Driver**
 | **Selected Product**     | **Rationale for Optimal Solution**                                              |
 |------------------|-------|
-| DRV8830DGQR <br> ![Motor Driver 2](images/components/DRV8830DGQR.jpg){: style="max-width: 250px; max-height: 250px;" } <br> Price: $2.09 <br> [Digikey](https://www.digikey.com/en/products/detail/texas-instruments/DRV8830DGQR/2520903) / [Datasheet](https://www.ti.com/lit/ds/symlink/drv8830.pdf?HQS=dis-dk-null-digikeymode-dsf-pf-null-wwe&ts=1738989981632&ref_url=https%253A%252F%252Fwww.ti.com%252Fgeneral%252Fdocs%252Fsuppproductinfo.tsp%253FdistId%253D10%2526gotoUrl%253Dhttps%253A%252F%252Fwww.ti.com%252Flit%252Fgpn%252Fdrv8830) |  |
+| DRV8830DGQR <br> ![Motor Driver 2](images/components/DRV8830DGQR.jpg){: style="max-width: 250px; max-height: 250px;" } <br> Price: $2.09 <br> [Digikey](https://www.digikey.com/en/products/detail/texas-instruments/DRV8830DGQR/2520903) / [Datasheet](https://www.ti.com/lit/ds/symlink/drv8830.pdf?HQS=dis-dk-null-digikeymode-dsf-pf-null-wwe&ts=1738989981632&ref_url=https%253A%252F%252Fwww.ti.com%252Fgeneral%252Fdocs%252Fsuppproductinfo.tsp%253FdistId%253D10%2526gotoUrl%253Dhttps%253A%252F%252Fwww.ti.com%252Flit%252Fgpn%252Fdrv8830) | The DRV8830DGQR motor driver is essential for controlling your 2-motor system. It can efficiently drive the motors, offering low power consumption and integrated fault protection. Given that you're working with a 12V supply and needing to control motors at lower voltages (like 3.3V for logic), this driver will provide smooth motor control while minimizing power loss and ensuring safety with overcurrent protection. |
 
 #### Benchmarked Products
 | Product          | Price | Links       | Pros                           | Cons                         |
@@ -32,7 +32,7 @@ For the motor drive subsystem, the main components will be the motors and the mo
 ### **Voltage Regulator**
 | **Selected Product**     | **Rationale for Optimal Solution**                                              |
 |------------------|-------|
-|  MIC4680-3.3YM <br> ![Voltage Regulator 2](images/components/MIC4680-3.3YM.jpg){: style="max-width: 250px; max-height: 250px;" } <br> Price: $2.96 <br> [Digikey](https://www.digikey.com/en/products/detail/microchip-technology/MIC4680-3-3YM/771689) / [Datasheet](https://ww1.microchip.com/downloads/en/DeviceDoc/mic4680.pdf) |  |
+|  MIC4680-3.3YM <br> ![Voltage Regulator 2](images/components/MIC4680-3.3YM.jpg){: style="max-width: 250px; max-height: 250px;" } <br> Price: $2.96 <br> [Digikey](https://www.digikey.com/en/products/detail/microchip-technology/MIC4680-3-3YM/771689) / [Datasheet](https://ww1.microchip.com/downloads/en/DeviceDoc/mic4680.pdf) | The MIC4680-3-3YM voltage regulator is perfect for powering the logic components of your system from the 12V supply. It features low dropout voltage, meaning it will maintain stable 3.3V output even when the input voltage is slightly above 3.3V. This is crucial for your project, as it ensures that the microcontroller and other logic components get the consistent 3.3V they need to function, without worrying about inefficiencies or excessive heat that could arise from a less efficient regulator. |
 
 #### Benchmarked Products
 | Product          | Price | Links       | Pros                           | Cons                         |
