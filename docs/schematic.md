@@ -2,7 +2,7 @@
 
 ![image](https://github.com/user-attachments/assets/eb7b002d-44b1-409b-963b-1ff3df97e0ba)
 
-[View PDF](https://github.com/zrromero/zrromero.github.io/blob/main/docs/images/EGR314MotorSystem.pdf))
+[View PDF](https://github.com/zrromero/zrromero.github.io/blob/main/docs/images/EGR314MotorSystem.pdf)
 
 [Download ZIP](https://github.com/zrromero/zrromero.github.io/blob/main/docs/images/EGR314_MotorSubsystem%20(2-21-2025%2011-43-22%20PM).zip)
 
