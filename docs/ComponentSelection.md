@@ -93,5 +93,3 @@ Since this subsystem will be using a PIC, the following table has been filled ou
 ### **PIC Test**
 ![PICTest](https://github.com/user-attachments/assets/c151cff9-b367-4ed1-8b81-4ac2899e8ce1)
 
-
-This Page Uses Some AI generated Content
