@@ -43,6 +43,8 @@ For the motor drive subsystem, the main components will be the motors and the mo
 
 
 ### **Power Supply**
+When choosing a power supply for this system, it's important to consider that the motors have the highest voltage requirements, meaning the battery may need to support not just this system but potentially others as well. I want something that isn't too bulky but still has enough power capacity to keep the project running efficiently. Given this, what type of power supply would be best? Should we use a battery pack consisting of AA or AAA batteries, which are easily replaceable but may not provide enough current? Or would a lithium battery be a better choice for higher capacity and rechargeability?
+
 | **Selected Product**     | **Rationale for Optimal Solution**                                              |
 |------------------|-----------------------------------------------------------------------------------------|
 |  |  |
