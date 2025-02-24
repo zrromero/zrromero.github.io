@@ -726,6 +726,56 @@
 
 <h1 id="motor-schematic">Motor Schematic</h1>
 <p><a class="glightbox" href="https://github.com/user-attachments/assets/eb7b002d-44b1-409b-963b-1ff3df97e0ba" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="https://github.com/user-attachments/assets/eb7b002d-44b1-409b-963b-1ff3df97e0ba" /></a></p>
+<h1 id="power-budget">Power Budget</h1>
+<h2 id="power-budget-table">Power Budget Table</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Voltage (V)</th>
+<th>Current (A)</th>
+<th>Power (W)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Power Source</strong></td>
+<td>12V</td>
+<td>?</td>
+<td>?</td>
+</tr>
+<tr>
+<td><strong>Motors (HC385G-302) x2</strong></td>
+<td>12V</td>
+<td>0.31A each</td>
+<td>7.44W</td>
+</tr>
+<tr>
+<td><strong>Motor Drivers (DRV8830DGQR) x2</strong></td>
+<td>3.3V-6.8V</td>
+<td>1A max</td>
+<td>~3.3W</td>
+</tr>
+<tr>
+<td><strong>Voltage Regulator (MIC4680-3.3YM)</strong></td>
+<td>12V → 3.3V</td>
+<td>~0.5A max</td>
+<td>~1.65W</td>
+</tr>
+<tr>
+<td><strong>Microcontroller (PIC18LF26K22)</strong></td>
+<td>3.3V</td>
+<td>~25mA</td>
+<td>~0.08W</td>
+</tr>
+<tr>
+<td><strong>Estimated Total Power</strong></td>
+<td>-</td>
+<td>~2.15A</td>
+<td>~12.47W</td>
+</tr>
+</tbody>
+</table>
 
 
 
