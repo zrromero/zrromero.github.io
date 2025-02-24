@@ -59,36 +59,37 @@ Since this subsystem will be using a PIC, the following table has been filled ou
 
 | ESP Info                                      | Answer |
 | --------------------------------------------- | ------ | 
-| Model                                         | PIC18  | 
-| Product Page URL                              | ?      |
-| Datasheet URL(s)                              | [Microchip](https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ProductDocuments/DataSheets/PIC18F26-46-56Q71-Microcontroller-Data-Sheet-DS40002329.pdf)      |
-| Application Notes URL(s)                      | ?      |
-| Vendor link                                   | ?      |
-| Code Examples                                 | ?      |
-| External Resources URL(s)                     | ?      |
-| Unit cost                                     | ?      |
-| Absolute Maximum Current for entire IC        | ?      |
-| Supply Voltage Range                          | ?      |
-| Absolute Maximum current <br> (for entire IC) | ?      |
-| Maximum GPIO current <br> (per pin)           | ?      |
-| Supports External Interrupts?                 | ?      |
-| Required Programming Hardware, Cost, URL      | ?      |
-| Works with MPLabX?                            | ?      |
-| Works with Microchip Code Configurator?       | ?      |
+| Model                                         | PIC18F26K22 | 
+| Product Page URL                              | [Product](https://www.microchip.com/en-us/product/PIC18F26K22#Documentation) |
+| Datasheet URL(s)                              | [Microchip](https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ProductDocuments/DataSheets/PIC18%28L%29F2X-4XK22-Data-Sheet-40001412H.pdf) |
+| Application Notes URL(s)                      | [Documetation](https://www.microchip.com/en-us/product/pic18f26k22#Documentation)      |
+| Vendor link                                   | [Purchase](https://www.microchip.com/en-us/product/pic18f26k22#Purchase)  |
+| Code Examples                                 | [Documentation](https://www.microchip.com/en-us/product/pic18f26k22#Documentation)  |
+| External Resources URL(s)                     | [Application Notes](https://www.microchip.com/en-us/product/pic18f26k22#Documentation)     |
+| Unit cost                                     | $2.51 |
+| Absolute Maximum Current for entire IC        | 25 mA |
+| Supply Voltage Range                          | 1.8V and 5.5V |
+| Absolute Maximum current <br> (for entire IC) | 25mA |
+| Maximum GPIO current <br> (per pin)           | 25mA |
+| Supports External Interrupts?                 | Yes  |
+| Required Programming Hardware, Cost, URL      | [MPLAB® SNAP](https://www.microchip.com/en-us/product/pic18f26k22#Tools%20And%20Software) |
+| Works with MPLabX?                            | Yes |
+| Works with Microchip Code Configurator?       | Yes |
 
 
 | Module | # Available | Needed | Associated Pins (or * for any) |
 | ---------- | ----------- | ------ | ------------------------------ |
-| GPIO       | 44          | 4      | GPIORA2, GPIORA3, GPIORA4, GPIORA5  |
-| ADC        | ?           | 0      | N/A                             |
-| UART       | 2       | 1      | RX1C7, TX1C6                     |
-| SPI        | 2           | 0     | N/A                            |
-| I2C        | 2           | 1      | SCL1C3, SDA1C4                 |
+| GPIO       | 28          | 4      | GPIORA0, GPIORA1, GPIORA2, GPIORA3|
+| ADC        | ?           | 0      | N/A                            |
+| UART       | 2           | 1      | RX1C7, TX1C6                   |
+| SPI        | 2           | 0      | N/A                            |
+| I2C        | 2           | 2      | SCL1, SDA1, SCL2,SDA2          |
 | PWM        | ?           | 0      | ?                              |
 | ICSP       | ?           | 1      | ?                              |
 | ...        | ...         | ...    | ...                            |
 
 ### **PIC Test**
-![PICtest](images/PIC18F56Q71PinTest.png)
+![PICTest](https://github.com/user-attachments/assets/c151cff9-b367-4ed1-8b81-4ac2899e8ce1)
 
-###### This Page Uses Some AI generated Content
+
+This Page Uses Some AI generated Content
