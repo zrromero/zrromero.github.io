@@ -4,6 +4,8 @@
 For the motor drive subsystem, the main components will be the motors and the motor driver. We also need to think about the system's power source as well as regulating that power so our components do not burn. This system will be using a PIC Microcontroller from Microchip to communicate with the motor driver through Serial Peripheral Interface(SPI) or Inter-Integrated Circuit(I2C).
 
 ### **Brushed DC Motor**
+For the motors, I am using brushed DC motors since they are cheap and will be small enough for our robot to be nonintrusive. I needed to find a motor that would work off of the power coming from the battery pack, so I roughly estimated around 12VDC was the optimal solution through the power budget.
+
 | **Selected Product**     | **Rationale for Optimal Solution**                                              |
 |------------------|-----------------------------------------------------------------------------------------|
 | HC385G-302 <br> ![BDC Motor 2](images/components/HC385G-302.jpg){: style="max-width: 250px; max-height: 250px;" } <br> Price: $7.01 <br> [Digikey](http://digikey.com/en/products/detail/johnson-motor/HC385G-302/12723725) / [Datasheet](https://www.johnsonelectric.com/pub/media/datasheetdownloadpdf/pdf/HC385G_302_metric_3__0.pdf) | This motor offers reliable and smooth performance for your 2-motor drive system, providing good speed and torque control. It’s ideal for medium-load applications and will integrate well with a 12V supply to drive your motors effectively, while its reliability ensures long-lasting performance in your system. |
@@ -17,6 +19,7 @@ For the motor drive subsystem, the main components will be the motors and the mo
 
 
 ### **Motor Driver**
+To find our motor driver, I needed a driver that either works in I2C format or SPI format. It also needs to be able to provide enough power for our motors to avoid running them below optimal efficiency.
 | **Selected Product**     | **Rationale for Optimal Solution**                                              |
 |------------------|-----------------------------------------------------------------------------------------|
 | DRV8830DGQR <br> ![Motor Driver 2](images/components/DRV8830DGQR.jpg){: style="max-width: 250px; max-height: 250px;" } <br> Price: $2.09 <br> [Digikey](https://www.digikey.com/en/products/detail/texas-instruments/DRV8830DGQR/2520903) / [Datasheet](https://www.ti.com/lit/ds/symlink/drv8830.pdf?HQS=dis-dk-null-digikeymode-dsf-pf-null-wwe&ts=1738989981632&ref_url=https%253A%252F%252Fwww.ti.com%252Fgeneral%252Fdocs%252Fsuppproductinfo.tsp%253FdistId%253D10%2526gotoUrl%253Dhttps%253A%252F%252Fwww.ti.com%252Flit%252Fgpn%252Fdrv8830) | The DRV8830DGQR motor driver is essential for controlling your 2-motor system. It can efficiently drive the motors, offering low power consumption and integrated fault protection. Given that you're working with a 12V supply and needing to control motors at lower voltages (like 3.3V for logic), this driver will provide smooth motor control while minimizing power loss and ensuring safety with overcurrent protection. |
@@ -30,6 +33,7 @@ For the motor drive subsystem, the main components will be the motors and the mo
 
 
 ### **Voltage Regulator**
+Finding the right voltage regulator was tricky since I needed to take some large input voltage, around 12V DC, and bring it down to 3.3V in an efficient manner. Not only did I have to supply that, but when calculating the voltage using my batteries, I would be supplying around 14.8V, which would burn my motor, causing me to find a second regulator that creates a stable voltage of 12V.
 | **Selected Product**     | **Rationale for Optimal Solution**                                              |
 |------------------|-----------------------------------------------------------------------------------------|
 |  MIC4680-3.3YM <br> ![Voltage Regulator 2](images/components/MIC4680-3.3YM.jpg){: style="max-width: 250px; max-height: 250px;" } <br> Price: $2.96 <br> [Digikey](https://www.digikey.com/en/products/detail/microchip-technology/MIC4680-3-3YM/771689) / [Datasheet](https://ww1.microchip.com/downloads/en/DeviceDoc/mic4680.pdf) | The MIC4680-3-3YM voltage regulator is perfect for powering the logic components of your system from the 12V supply. It features low dropout voltage, meaning it will maintain stable 3.3V output even when the input voltage is slightly above 3.3V. This is crucial for your project, as it ensures that the microcontroller and other logic components get the consistent 3.3V they need to function, without worrying about inefficiencies or excessive heat that could arise from a less efficient regulator. |
@@ -43,18 +47,20 @@ For the motor drive subsystem, the main components will be the motors and the mo
 
 
 ### **Power Supply**
-When choosing a power supply for this system, it's important to consider that the motors have the highest voltage requirements, meaning the battery may need to support not just this system but potentially others as well. I want something that isn't too bulky but still has enough power capacity to keep the project running efficiently. Given this, what type of power supply would be best? Should we use a battery pack consisting of AA or AAA batteries, which are easily replaceable but may not provide enough current? Or would a lithium battery be a better choice for higher capacity and rechargeability?
+When choosing a power supply for this system, it's important to consider that the motors have the highest voltage requirements, meaning the battery may need to support not just this system but potentially others as well. I want something that isn't too bulky but still has enough power capacity to keep the project running efficiently. Given this, I decided to use 18650 lithium batteries, as they are relatively cheap due to being used in many products and have a great power storage capabilities seen through many hobbyist projects.
 
 | **Selected Product**     | **Rationale for Optimal Solution**                                              |
 |------------------|-----------------------------------------------------------------------------------------|
-|  |  |
+| 114090052 <br> ![Power Supply 2](images/components/114090052.jpg){: style="max-width: 250px; max-height: 250px;" } <br> Price: $1.49 <br> Digikey](https://www.digikey.com/en/products/detail/seeed-technology-co-ltd/114090052/10451909?gclsrc=aw.ds&&utm_adgroup=&utm_source=google&utm_medium=cpc&utm_campaign=Pmax_Shopping_Kemet_0399_Co-op&utm_term=&utm_content=&utm_id=go_cmp-21006314577_adg-_ad-__dev-c_ext-_prd-10451909_sig-CjwKCAiAt4C-BhBcEiwA8Kp0CS-VDejf0bi25snqRPutG9LRSwlgDfWQRWcZPSicBI7QqD0EbpzExhoC7U4QAvD_BwE&gad_source=1&gclid=CjwKCAiAt4C-BhBcEiwA8Kp0CS-VDejf0bi25snqRPutG9LRSwlgDfWQRWcZPSicBI7QqD0EbpzExhoC7U4QAvD_BwE&gclsrc=aw.ds) / [Datasheet](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/338/114090052_Web.pdf?_gl=1*z21epr*_up*MQ..*_gs*MQ..&gclid=CjwKCAiAt4C-BhBcEiwA8Kp0CS-VDejf0bi25snqRPutG9LRSwlgDfWQRWcZPSicBI7QqD0EbpzExhoC7U4QAvD_BwE&gclsrc=aw.ds) | The 114090052 battery holder is the best choice because it is the cheapest option at only $1.49 while still meeting our voltage requirements when wired in series. Its compact and lightweight design helps keep our project from becoming too bulky, making it more practical. Additionally, it allows for easy battery replacement, avoiding the need for complex charging circuits like those required for lithium battery packs. |
 
 #### Benchmarked Products
 | Product          | Price | Links       | Pros                           | Cons                         |
 |--|-------|-----------------|--------------------------------------|------------------------------------|
-|  <br> ![Power Supply 1](images/components/.jpg){: style="max-width: 250px; max-height: 250px;" } |  | [Digikey]() / [Datasheet]() |  - <br> - <br> - |  - <br> - <br> - |
-|  <br> ![Power Supply 1](images/components/.jpg){: style="max-width: 250px; max-height: 250px;" } |  | [Digikey]() / [Datasheet]() |  - <br> - <br> - |  - <br> - <br> - |
-|  <br> ![Power Supply 1](images/components/.jpg){: style="max-width: 250px; max-height: 250px;" } |  | [Digikey]() / [Datasheet]() |  - <br> - <br> - |  - <br> - <br> - |
+| BK-18650-PC8 <br> ![Power Supply 1](images/components/BK-18650-PC8.jpg){: style="max-width: 250px; max-height: 250px;" } | $6.06 | [Digikey](https://www.digikey.com/en/products/detail/mpd-memory-protection-devices-/BK-18650-PC8/2330515?gclsrc=aw.ds&&utm_adgroup=&utm_source=google&utm_medium=cpc&utm_campaign=Pmax_Shopping_Kemet_0399_Co-op&utm_term=&utm_content=&utm_id=go_cmp-21006314577_adg-_ad-__dev-c_ext-_prd-2330515_sig-CjwKCAiAt4C-BhBcEiwA8Kp0CQRKxumzJ53EujDq2but3fAQEFkDbbhzFzlO_2egjskEnngshLDDoRoCw-YQAvD_BwE&gad_source=1&gclid=CjwKCAiAt4C-BhBcEiwA8Kp0CQRKxumzJ53EujDq2but3fAQEFkDbbhzFzlO_2egjskEnngshLDDoRoCw-YQAvD_BwE&gclsrc=aw.ds) / [Datasheet](https://www.memoryprotectiondevices.com/datasheets/BK-18650-PC8/BK-18650-PC8-datasheet.pdf) | - Reliable holder <br> - Supports 18650 cells <br>  - Durable design | - Requires separate cells
+- Bulkier than others
+- Higher cost |
+| 114090052 <br> ![Power Supply 2](images/components/114090052.jpg){: style="max-width: 250px; max-height: 250px;" } | $1.49 | [Digikey](https://www.digikey.com/en/products/detail/seeed-technology-co-ltd/114090052/10451909?gclsrc=aw.ds&&utm_adgroup=&utm_source=google&utm_medium=cpc&utm_campaign=Pmax_Shopping_Kemet_0399_Co-op&utm_term=&utm_content=&utm_id=go_cmp-21006314577_adg-_ad-__dev-c_ext-_prd-10451909_sig-CjwKCAiAt4C-BhBcEiwA8Kp0CS-VDejf0bi25snqRPutG9LRSwlgDfWQRWcZPSicBI7QqD0EbpzExhoC7U4QAvD_BwE&gad_source=1&gclid=CjwKCAiAt4C-BhBcEiwA8Kp0CS-VDejf0bi25snqRPutG9LRSwlgDfWQRWcZPSicBI7QqD0EbpzExhoC7U4QAvD_BwE&gclsrc=aw.ds) / [Datasheet](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/338/114090052_Web.pdf?_gl=1*z21epr*_up*MQ..*_gs*MQ..&gclid=CjwKCAiAt4C-BhBcEiwA8Kp0CS-VDejf0bi25snqRPutG9LRSwlgDfWQRWcZPSicBI7QqD0EbpzExhoC7U4QAvD_BwE&gclsrc=aw.ds) | - Compact design <br> - Lightweight <br> -Accepts 18650 cells | - Lower capacity <br> - May need replacements <br> - Less durable |
+| L148A26-4-3-3WA3 <br> ![Power Supply 3](images/components/L148A26-4-3-3WA3.jpg){: style="max-width: 250px; max-height: 250px;" } | $33.44 | [Digikey](https://www.digikey.com/en/products/detail/dantona-industries/L148A26-4-3-3WA3/13692657) / [Datasheet](https://dantona.com/products/l148a26-4-3-3wa3/) | - High capacity <br> - Pre-assembled pack <br> - Long-lasting | - Most expensive <br> - Bulky design <br> - Overkill for project |
 
 ### **Microcontroller**
 Since this subsystem will be using a PIC, the following table has been filled out to decide which ones can and/or will be used in the project
@@ -84,7 +90,7 @@ Since this subsystem will be using a PIC, the following table has been filled ou
 | GPIO       | 28          | 4      | GPIORA0, GPIORA1, GPIORA2, GPIORA3|
 | ADC        | ?           | 0      | N/A                            |
 | UART       | 2           | 1      | RX1C7, TX1C6                   |
-| SPI        | 2           | 0      | N/A                            |
+| SPI        | 2           | 2      | N/A                            |
 | I2C        | 2           | 2      | SCL1, SDA1, SCL2,SDA2          |
 | PWM        | ?           | 0      | ?                              |
 | ICSP       | ?           | 1      | ?                              |
