@@ -980,6 +980,7 @@
 <h2 id="major-components"><strong>Major Components</strong></h2>
 <p>For the motor drive subsystem, the main components will be the motors and the motor driver. We also need to think about the system's power source as well as regulating that power so our components do not burn. This system will be using a PIC Microcontroller from Microchip to communicate with the motor driver through Serial Peripheral Interface(SPI) or Inter-Integrated Circuit(I2C).</p>
 <h3 id="brushed-dc-motor"><strong>Brushed DC Motor</strong></h3>
+<p>For the motors, I am using brushed DC motors since they are cheap and will be small enough for our robot to be nonintrusive. I needed to find a motor that would work off of the power coming from the battery pack, so I roughly estimated around 12VDC was the optimal solution through the power budget.</p>
 <table>
 <thead>
 <tr>
@@ -1030,20 +1031,10 @@
 </tbody>
 </table>
 <h3 id="motor-driver"><strong>Motor Driver</strong></h3>
-<table>
-<thead>
-<tr>
-<th><strong>Selected Product</strong></th>
-<th><strong>Rationale for Optimal Solution</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>DRV8830DGQR <br> <a class="glightbox" href="../images/components/DRV8830DGQR.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Motor Driver 2" src="../images/components/DRV8830DGQR.jpg" style="max-width: 250px; max-height: 250px;" /></a> <br> Price: $2.09 <br> <a href="https://www.digikey.com/en/products/detail/texas-instruments/DRV8830DGQR/2520903">Digikey</a> / <a href="https://www.ti.com/lit/ds/symlink/drv8830.pdf?HQS=dis-dk-null-digikeymode-dsf-pf-null-wwe&amp;ts=1738989981632&amp;ref_url=https%253A%252F%252Fwww.ti.com%252Fgeneral%252Fdocs%252Fsuppproductinfo.tsp%253FdistId%253D10%2526gotoUrl%253Dhttps%253A%252F%252Fwww.ti.com%252Flit%252Fgpn%252Fdrv8830">Datasheet</a></td>
-<td>The DRV8830DGQR motor driver is essential for controlling your 2-motor system. It can efficiently drive the motors, offering low power consumption and integrated fault protection. Given that you're working with a 12V supply and needing to control motors at lower voltages (like 3.3V for logic), this driver will provide smooth motor control while minimizing power loss and ensuring safety with overcurrent protection.</td>
-</tr>
-</tbody>
-</table>
+<p>To find our motor driver, I needed a driver that either works in I2C format or SPI format. It also needs to be able to provide enough power for our motors to avoid running them below optimal efficiency.
+| <strong>Selected Product</strong>     | <strong>Rationale for Optimal Solution</strong>                                              |
+|------------------|-----------------------------------------------------------------------------------------|
+| DRV8830DGQR <br> <a class="glightbox" href="../images/components/DRV8830DGQR.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Motor Driver 2" src="../images/components/DRV8830DGQR.jpg" style="max-width: 250px; max-height: 250px;" /></a> <br> Price: $2.09 <br> <a href="https://www.digikey.com/en/products/detail/texas-instruments/DRV8830DGQR/2520903">Digikey</a> / <a href="https://www.ti.com/lit/ds/symlink/drv8830.pdf?HQS=dis-dk-null-digikeymode-dsf-pf-null-wwe&amp;ts=1738989981632&amp;ref_url=https%253A%252F%252Fwww.ti.com%252Fgeneral%252Fdocs%252Fsuppproductinfo.tsp%253FdistId%253D10%2526gotoUrl%253Dhttps%253A%252F%252Fwww.ti.com%252Flit%252Fgpn%252Fdrv8830">Datasheet</a> | The DRV8830DGQR motor driver is essential for controlling your 2-motor system. It can efficiently drive the motors, offering low power consumption and integrated fault protection. Given that you're working with a 12V supply and needing to control motors at lower voltages (like 3.3V for logic), this driver will provide smooth motor control while minimizing power loss and ensuring safety with overcurrent protection. |</p>
 <h4 id="benchmarked-products_1">Benchmarked Products</h4>
 <table>
 <thead>
@@ -1080,20 +1071,10 @@
 </tbody>
 </table>
 <h3 id="voltage-regulator"><strong>Voltage Regulator</strong></h3>
-<table>
-<thead>
-<tr>
-<th><strong>Selected Product</strong></th>
-<th><strong>Rationale for Optimal Solution</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>MIC4680-3.3YM <br> <a class="glightbox" href="../images/components/MIC4680-3.3YM.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Voltage Regulator 2" src="../images/components/MIC4680-3.3YM.jpg" style="max-width: 250px; max-height: 250px;" /></a> <br> Price: $2.96 <br> <a href="https://www.digikey.com/en/products/detail/microchip-technology/MIC4680-3-3YM/771689">Digikey</a> / <a href="https://ww1.microchip.com/downloads/en/DeviceDoc/mic4680.pdf">Datasheet</a></td>
-<td>The MIC4680-3-3YM voltage regulator is perfect for powering the logic components of your system from the 12V supply. It features low dropout voltage, meaning it will maintain stable 3.3V output even when the input voltage is slightly above 3.3V. This is crucial for your project, as it ensures that the microcontroller and other logic components get the consistent 3.3V they need to function, without worrying about inefficiencies or excessive heat that could arise from a less efficient regulator.</td>
-</tr>
-</tbody>
-</table>
+<p>Finding the right voltage regulator was tricky since I needed to take some large input voltage, around 12V DC, and bring it down to 3.3V in an efficient manner. Not only did I have to supply that, but when calculating the voltage using my batteries, I would be supplying around 14.8V, which would burn my motor, causing me to find a second regulator that creates a stable voltage of 12V.
+| <strong>Selected Product</strong>     | <strong>Rationale for Optimal Solution</strong>                                              |
+|------------------|-----------------------------------------------------------------------------------------|
+|  MIC4680-3.3YM <br> <a class="glightbox" href="../images/components/MIC4680-3.3YM.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Voltage Regulator 2" src="../images/components/MIC4680-3.3YM.jpg" style="max-width: 250px; max-height: 250px;" /></a> <br> Price: $2.96 <br> <a href="https://www.digikey.com/en/products/detail/microchip-technology/MIC4680-3-3YM/771689">Digikey</a> / <a href="https://ww1.microchip.com/downloads/en/DeviceDoc/mic4680.pdf">Datasheet</a> | The MIC4680-3-3YM voltage regulator is perfect for powering the logic components of your system from the 12V supply. It features low dropout voltage, meaning it will maintain stable 3.3V output even when the input voltage is slightly above 3.3V. This is crucial for your project, as it ensures that the microcontroller and other logic components get the consistent 3.3V they need to function, without worrying about inefficiencies or excessive heat that could arise from a less efficient regulator. |</p>
 <h4 id="benchmarked-products_2">Benchmarked Products</h4>
 <table>
 <thead>
@@ -1130,7 +1111,7 @@
 </tbody>
 </table>
 <h3 id="power-supply"><strong>Power Supply</strong></h3>
-<p>When choosing a power supply for this system, it's important to consider that the motors have the highest voltage requirements, meaning the battery may need to support not just this system but potentially others as well. I want something that isn't too bulky but still has enough power capacity to keep the project running efficiently. Given this, what type of power supply would be best? Should we use a battery pack consisting of AA or AAA batteries, which are easily replaceable but may not provide enough current? Or would a lithium battery be a better choice for higher capacity and rechargeability?</p>
+<p>When choosing a power supply for this system, it's important to consider that the motors have the highest voltage requirements, meaning the battery may need to support not just this system but potentially others as well. I want something that isn't too bulky but still has enough power capacity to keep the project running efficiently. Given this, I decided to use 18650 lithium batteries, as they are relatively cheap due to being used in many products and have a great power storage capabilities seen through many hobbyist projects.</p>
 <table>
 <thead>
 <tr>
@@ -1140,8 +1121,8 @@
 </thead>
 <tbody>
 <tr>
-<td></td>
-<td></td>
+<td>114090052 <br> <a class="glightbox" href="../images/components/114090052.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Power Supply 2" src="../images/components/114090052.jpg" style="max-width: 250px; max-height: 250px;" /></a> <br> Price: $1.49 <br> Digikey](https://www.digikey.com/en/products/detail/seeed-technology-co-ltd/114090052/10451909?gclsrc=aw.ds&amp;&amp;utm_adgroup=&amp;utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=Pmax_Shopping_Kemet_0399_Co-op&amp;utm_term=&amp;utm_content=&amp;utm_id=go_cmp-21006314577_adg-_ad-__dev-c_ext-_prd-10451909_sig-CjwKCAiAt4C-BhBcEiwA8Kp0CS-VDejf0bi25snqRPutG9LRSwlgDfWQRWcZPSicBI7QqD0EbpzExhoC7U4QAvD_BwE&amp;gad_source=1&amp;gclid=CjwKCAiAt4C-BhBcEiwA8Kp0CS-VDejf0bi25snqRPutG9LRSwlgDfWQRWcZPSicBI7QqD0EbpzExhoC7U4QAvD_BwE&amp;gclsrc=aw.ds) / <a href="https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/338/114090052_Web.pdf?_gl=1*z21epr*_up*MQ..*_gs*MQ..&amp;gclid=CjwKCAiAt4C-BhBcEiwA8Kp0CS-VDejf0bi25snqRPutG9LRSwlgDfWQRWcZPSicBI7QqD0EbpzExhoC7U4QAvD_BwE&amp;gclsrc=aw.ds">Datasheet</a></td>
+<td>The 114090052 battery holder is the best choice because it is the cheapest option at only $1.49 while still meeting our voltage requirements when wired in series. Its compact and lightweight design helps keep our project from becoming too bulky, making it more practical. Additionally, it allows for easy battery replacement, avoiding the need for complex charging circuits like those required for lithium battery packs.</td>
 </tr>
 </tbody>
 </table>
@@ -1158,25 +1139,39 @@
 </thead>
 <tbody>
 <tr>
-<td><br> <a class="glightbox" href="images/components/.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Power Supply 1" src="images/components/.jpg" style="max-width: 250px; max-height: 250px;" /></a></td>
-<td></td>
-<td><a href="">Digikey</a> / <a href="">Datasheet</a></td>
-<td>- <br> - <br> -</td>
-<td>- <br> - <br> -</td>
+<td>BK-18650-PC8 <br> <a class="glightbox" href="../images/components/BK-18650-PC8.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Power Supply 1" src="../images/components/BK-18650-PC8.jpg" style="max-width: 250px; max-height: 250px;" /></a></td>
+<td>$6.06</td>
+<td><a href="https://www.digikey.com/en/products/detail/mpd-memory-protection-devices-/BK-18650-PC8/2330515?gclsrc=aw.ds&amp;&amp;utm_adgroup=&amp;utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=Pmax_Shopping_Kemet_0399_Co-op&amp;utm_term=&amp;utm_content=&amp;utm_id=go_cmp-21006314577_adg-_ad-__dev-c_ext-_prd-2330515_sig-CjwKCAiAt4C-BhBcEiwA8Kp0CQRKxumzJ53EujDq2but3fAQEFkDbbhzFzlO_2egjskEnngshLDDoRoCw-YQAvD_BwE&amp;gad_source=1&amp;gclid=CjwKCAiAt4C-BhBcEiwA8Kp0CQRKxumzJ53EujDq2but3fAQEFkDbbhzFzlO_2egjskEnngshLDDoRoCw-YQAvD_BwE&amp;gclsrc=aw.ds">Digikey</a> / <a href="https://www.memoryprotectiondevices.com/datasheets/BK-18650-PC8/BK-18650-PC8-datasheet.pdf">Datasheet</a></td>
+<td>- Reliable holder <br> - Supports 18650 cells <br>  - Durable design</td>
+<td>- Requires separate cells</td>
 </tr>
 <tr>
-<td><br> <a class="glightbox" href="images/components/.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Power Supply 1" src="images/components/.jpg" style="max-width: 250px; max-height: 250px;" /></a></td>
+<td>- Bulkier than others</td>
 <td></td>
-<td><a href="">Digikey</a> / <a href="">Datasheet</a></td>
-<td>- <br> - <br> -</td>
-<td>- <br> - <br> -</td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr>
-<td><br> <a class="glightbox" href="images/components/.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Power Supply 1" src="images/components/.jpg" style="max-width: 250px; max-height: 250px;" /></a></td>
+<td>- Higher cost</td>
 <td></td>
-<td><a href="">Digikey</a> / <a href="">Datasheet</a></td>
-<td>- <br> - <br> -</td>
-<td>- <br> - <br> -</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>114090052 <br> <a class="glightbox" href="../images/components/114090052.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Power Supply 2" src="../images/components/114090052.jpg" style="max-width: 250px; max-height: 250px;" /></a></td>
+<td>$1.49</td>
+<td><a href="https://www.digikey.com/en/products/detail/seeed-technology-co-ltd/114090052/10451909?gclsrc=aw.ds&amp;&amp;utm_adgroup=&amp;utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=Pmax_Shopping_Kemet_0399_Co-op&amp;utm_term=&amp;utm_content=&amp;utm_id=go_cmp-21006314577_adg-_ad-__dev-c_ext-_prd-10451909_sig-CjwKCAiAt4C-BhBcEiwA8Kp0CS-VDejf0bi25snqRPutG9LRSwlgDfWQRWcZPSicBI7QqD0EbpzExhoC7U4QAvD_BwE&amp;gad_source=1&amp;gclid=CjwKCAiAt4C-BhBcEiwA8Kp0CS-VDejf0bi25snqRPutG9LRSwlgDfWQRWcZPSicBI7QqD0EbpzExhoC7U4QAvD_BwE&amp;gclsrc=aw.ds">Digikey</a> / <a href="https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/338/114090052_Web.pdf?_gl=1*z21epr*_up*MQ..*_gs*MQ..&amp;gclid=CjwKCAiAt4C-BhBcEiwA8Kp0CS-VDejf0bi25snqRPutG9LRSwlgDfWQRWcZPSicBI7QqD0EbpzExhoC7U4QAvD_BwE&amp;gclsrc=aw.ds">Datasheet</a></td>
+<td>- Compact design <br> - Lightweight <br> -Accepts 18650 cells</td>
+<td>- Lower capacity <br> - May need replacements <br> - Less durable</td>
+</tr>
+<tr>
+<td>L148A26-4-3-3WA3 <br> <a class="glightbox" href="../images/components/L148A26-4-3-3WA3.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Power Supply 3" src="../images/components/L148A26-4-3-3WA3.jpg" style="max-width: 250px; max-height: 250px;" /></a></td>
+<td>$33.44</td>
+<td><a href="https://www.digikey.com/en/products/detail/dantona-industries/L148A26-4-3-3WA3/13692657">Digikey</a> / <a href="https://dantona.com/products/l148a26-4-3-3wa3/">Datasheet</a></td>
+<td>- High capacity <br> - Pre-assembled pack <br> - Long-lasting</td>
+<td>- Most expensive <br> - Bulky design <br> - Overkill for project</td>
 </tr>
 </tbody>
 </table>
@@ -1287,7 +1282,7 @@
 <tr>
 <td>SPI</td>
 <td>2</td>
-<td>0</td>
+<td>2</td>
 <td>N/A</td>
 </tr>
 <tr>
