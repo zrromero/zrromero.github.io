@@ -1,9 +1,9 @@
 # **Bill of Materials (BOM)**
-# Bill of Materials (BOM)
 
 | Part Name/Description | Unit Quantity | Unit Prototype Cost (USD) | Total Prototype Cost (USD) | Manufacturer | Manufacturer Part Number | Vendor Link | Datasheet Link | Supplier | Supplier Part Number | Amount Ordered | # Received | Surplus | Schematic Reference Designator |
 |-----------------------|---------------|---------------------------|----------------------------|--------------|--------------------------|-------------|----------------|----------|----------------------|----------------|------------|---------|-------------------------------|
-| 4 Cell 18650 Series Battery | 1 | $20.00 | $20.00 | Various | N/A | [Digi-Key](https://www.digikey.com/) | N/A | Digi-Key | N/A | 2 | TBD | 1 | CVin |
+| 4 Cell 18650 Series Battery Holder | 1 | $20.00 | $20.00 | Various | N/A | [Digi-Key](https://www.digikey.com/) | N/A | Digi-Key | N/A | 2 | TBD | 1 | CVin |
+| 4 18650 Batteries | 1 | $24.00 | $24.00 | PKCELL | ICR18650-2600-F | [Digikey](http://digikey.com/en/products/detail/pkcell/ICR18650-2600-F/11629989) | [Datasheet](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/2595/ICR18650%202600_Spec.pdf) | Digikey | ICR18650-2600-F | 1 | N/A |
 | Schottky Diode | 1 | $0.10 | $0.10 | Diodes Incorporated | B260AE-13 | [Digi-Key](https://www.digikey.com/product-detail/en/diodes-incorporated/B260AE-13-F/B260AE-13-FDICT-ND/2050830) | [Datasheet](https://www.diodes.com/assets/Datasheets/ds30192.pdf) | Digi-Key | B260AE-13-FDICT-ND | 3 | TBD | 2 | DBlue, DGreen, DRed, DWhite |
 | Connector IN/OUT | 2 | $1.00 | $2.00 | TE Connectivity | 350428-1 | [Digi-Key](https://www.digikey.com/product-detail/en/te-connectivity-amp-connectors/350428-1/A26228-ND/73516) | [Datasheet](https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=350428-1&DocType=Customer+Drawing&DocLang=English) | Digi-Key | A26228-ND | 4 | TBD | 2 | J? |
 | Capacitor (CVin) | 1 | $0.05 | $0.05 | Various | N/A | [Digi-Key](https://www.digikey.com/) | N/A | Digi-Key | N/A | 6 | TBD | 5 | CVin |
@@ -13,9 +13,10 @@
 | PIC18F26K22 Microcontroller | 1 | $4.00 | $4.00 | Microchip Technology | PIC18F26K22-I/SP | [Digi-Key](https://www.digikey.com/product-detail/en/microchip-technology/PIC18F26K22-I-SP/PIC18F26K22-I-SP-ND/2783851) | [Datasheet](https://ww1.microchip.com/downloads/en/DeviceDoc/40001497F.pdf) | Digi-Key | PIC18F26K22-I/SP-ND | 2 | TBD | 1 | MCC* |
 | BTM9011EPXUMA1 Motor Driver | 2 | $3.00 | $6.00 | Infineon Technologies | BTM9011EPXUMA1 | [Digi-Key](https://www.digikey.com/product-detail/en/infineon-technologies/BTM9011EPXUMA1/BTM9011EPXUMA1CT-ND/8117127) | [Datasheet](https://www.infineon.com/dgdl/Infineon-BTM9011EP-DS-v01_00-EN.pdf) | Digi-Key | BTM9011EPXUMA1CT-ND | 3 | TBD | 1 | MD1, MD2 |
 | DRV8830DGQR Motor Driver | 1 | $2.50 | $2.50 | Texas Instruments | DRV8830DGQR | [Digi-Key](https://www.digikey.com/product-detail/en/texas-instruments/DRV8830DGQR/296-27750-1-ND/2339419) | [Datasheet](https://www.ti.com/lit/ds/symlink/drv8830.pdf) | Digi-Key | 296-27750-1-ND | 2 | TBD | 1 | MD* |
-| DC Motor | 2 | $10.00 | $20.00 | Johnson Electric | HC385G-302 | [Digi-Key](https://www.digikey.com/product-detail/en/johnson-electric/HC385G-302/403-1238-ND/6206345) | [Datasheet](https://www.johnsonelectric.com/en/resources/datasheets/HC385G-302.pdf) | Digi-Key | 403-1238-ND | 3 | TBD | 1 | MLeft, MRight? |
+| DC Motor | 2 | $10.00 | $20.00 | Johnson Electric | HC385G-302 | [Digi-Key](https://www.digikey.com/product-detail/en/johnson-electric/HC385G-302/403-1238-ND/6206345) | [Datasheet](https://www.johnsonelectric.com/en/resources/datasheets/HC385G-302.pdf) | Digi-Key | 403-1238-ND | 3 | TBD | 1 | MLeft, MRight |
 | Resistor (RB, RW) | 2 | $0.02 | $0.04 | Various | N/A | [Digi-Key](https://www.digikey.com/) | N/A | Digi-Key | N/A | 7 | TBD | 5 | RB, RW |
 | Resistor (RG, RR) | 2 | $0.02 | $0.04 | Various | N/A | [Digi-Key](https://www.digikey.com/) | N/A | Digi-Key | N/A | 7 | TBD | 5 | RG, RR |
 | MIC4680-3.3YM Buck Converter | 1 | $3.00 | $3.00 | Microchip Technology | MIC4680-3.3YM | [Digi-Key](https://www.digikey.com/product-detail/en/microchip-technology/MIC4680-3.3YM/576-1182-5-ND/770072) | [Datasheet](https://ww1.microchip.com/downloads/en/DeviceDoc/mic4680.pdf) | Digi-Key | 576-1182-5-ND | 2 | TBD | 1 | U1 |
 | Fuse | 3 | $0.10 | $0.30 | Littelfuse Inc. | 03131.25MXP | [Digi-Key](https://www.digikey.com/product-detail/en/littelfuse-inc/03131.25MXP/F3155-ND/1305021) | [Datasheet](https://www.littelfuse.com/~/media/electronics/datasheets/fuses/littelfuse_fuse_313_315_series_datasheet.pdf.pdf) | Digi-Key | F3155-ND | 7 | TBD | 4 | XLeft, XPIC, XRight |
+
  
