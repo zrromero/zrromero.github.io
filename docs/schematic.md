@@ -5,7 +5,7 @@
 
 [View PDF](https://github.com/zrromero/zrromero.github.io/blob/main/docs/images/EGR314MotorSystem.pdf)
 
-[Download ZIP](https://github.com/zrromero/zrromero.github.io/blob/main/docs/images/EGR314_MotorSubsystem%20(2-21-2025%2011-43-22%20PM).zip)
+[Download ZIP](https://github.com/zrromero/zrromero.github.io/blob/main/docs/images/EGR314_MotorSubsystem%20(2-28-2025%2011-38-45%20PM).zip)
 
 
 # Power Budget
