@@ -761,7 +761,7 @@
 
 
 <h1 id="motor-schematic">Motor Schematic</h1>
-<p><a class="glightbox" href="https://github.com/user-attachments/assets/eb7b002d-44b1-409b-963b-1ff3df97e0ba" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="https://github.com/user-attachments/assets/eb7b002d-44b1-409b-963b-1ff3df97e0ba" /></a></p>
+<p><a class="glightbox" href="https://github.com/user-attachments/assets/2c6c429d-e915-404e-9891-2c69c7c8217d" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image" src="https://github.com/user-attachments/assets/2c6c429d-e915-404e-9891-2c69c7c8217d" /></a></p>
 <p><a href="https://github.com/zrromero/zrromero.github.io/blob/main/docs/images/EGR314MotorSystem.pdf">View PDF</a></p>
 <p><a href="https://github.com/zrromero/zrromero.github.io/blob/main/docs/images/EGR314_MotorSubsystem%20(2-21-2025%2011-43-22%20PM).zip">Download ZIP</a></p>
 <h1 id="power-budget">Power Budget</h1>
@@ -769,98 +769,73 @@
 <table>
 <thead>
 <tr>
-<th>Component</th>
-<th>Voltage (V)</th>
-<th>Current (A)</th>
-<th>Power (W)</th>
+<th><strong>Component</strong></th>
+<th><strong>Power Consumption</strong></th>
+<th><strong>Voltage</strong></th>
+<th><strong>Current (Amps)</strong></th>
+<th><strong>Power (W)</strong></th>
+<th><strong>Notes</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Power Source</strong></td>
+<td><strong>HC385G-302 Motor 1</strong></td>
+<td>12V DC Motor</td>
 <td>12V</td>
-<td>?</td>
-<td>?</td>
+<td>0.31A</td>
+<td>3.72W</td>
+<td>Rated at 12V, 0.31A motor</td>
 </tr>
 <tr>
-<td><strong>Motors (HC385G-302) x2</strong></td>
+<td><strong>HC385G-302 Motor 2</strong></td>
+<td>12V DC Motor</td>
 <td>12V</td>
-<td>0.31A each</td>
-<td>7.44W</td>
+<td>0.31A</td>
+<td>3.72W</td>
+<td>Same as Motor 1</td>
 </tr>
 <tr>
-<td><strong>Motor Drivers (DRV8830DGQR) x2</strong></td>
-<td>3.3V-6.8V</td>
-<td>1A max</td>
-<td>~3.3W</td>
+<td><strong>BTM9011EPXUMA1 Motor Driver 1</strong></td>
+<td>Motor Driver</td>
+<td>12V (Motor)</td>
+<td>~0.02A (standby)</td>
+<td>0.24W</td>
+<td>Approximate power for low load; higher at full load</td>
 </tr>
 <tr>
-<td><strong>Voltage Regulator (MIC4680-3.3YM)</strong></td>
-<td>12V → 3.3V</td>
-<td>~0.5A max</td>
-<td>~1.65W</td>
+<td><strong>BTM9011EPXUMA1 Motor Driver 2</strong></td>
+<td>Motor Driver</td>
+<td>12V (Motor)</td>
+<td>~0.02A (standby)</td>
+<td>0.24W</td>
+<td>Approximate power for low load; higher at full load</td>
 </tr>
 <tr>
-<td><strong>Microcontroller (PIC18LF26K22)</strong></td>
+<td><strong>MIC4680-3.3YM Voltage Regulator</strong></td>
+<td>Step-Down Regulator</td>
+<td>14.8V (Input)</td>
+<td>0.35A (for 3.3V load)</td>
+<td>1.16W</td>
+<td>Power consumed based on 3.3V conversion</td>
+</tr>
+<tr>
+<td><strong>PIC18LF26K22 Microcontroller</strong></td>
+<td>MCU</td>
 <td>3.3V</td>
-<td>~25mA</td>
-<td>~0.08W</td>
+<td>0.04A</td>
+<td>0.13W</td>
+<td>Low current consumption (approx. 40mA)</td>
 </tr>
 <tr>
-<td><strong>Estimated Total Power</strong></td>
-<td>-</td>
-<td>~2.15A</td>
-<td>~12.47W</td>
+<td><strong>Total Power Consumption</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>9.49W</strong></td>
+<td></td>
 </tr>
 </tbody>
 </table>
-<h2 id="key-takeaways-from-the-power-budget-analysis"><strong>Key Takeaways from the Power Budget Analysis</strong></h2>
-<h3 id="1-the-power-supply-can-handle-the-load"><strong>1. The Power Supply Can Handle the Load</strong></h3>
-<ul>
-<li>The estimated total power draw is <strong>~12.47W</strong>, with the <strong>motors consuming the most power (~7.44W).</strong></li>
-<li>A <strong>12V power supply</strong> should provide at least <strong>2.15A</strong> (total estimated current draw).</li>
-<li>If the power supply is <strong>under 2.5A</strong>, the system may struggle under peak loads.</li>
-</ul>
-<h3 id="2-the-voltage-regulator-needs-to-handle-a-considerable-load"><strong>2. The Voltage Regulator Needs to Handle a Considerable Load</strong></h3>
-<ul>
-<li>The <strong>MIC4680-3.3YM</strong> steps <strong>12V down to 3.3V</strong>, with <strong>~80-90% efficiency</strong>, meaning some power is lost as heat.</li>
-<li>Since it provides power to the <strong>microcontroller and motor drivers</strong>, it must supply <strong>at least 0.5A</strong>.</li>
-<li><strong>Heat dissipation (e.g., a heatsink)</strong> might be necessary.</li>
-</ul>
-<h3 id="3-the-motors-are-the-biggest-power-consumers"><strong>3. The Motors Are the Biggest Power Consumers</strong></h3>
-<ul>
-<li>The <strong>motors (HC385G-302)</strong> each draw <strong>0.31A at 12V</strong>, consuming most of the power.</li>
-<li>If both motors <strong>stall or run at peak load</strong>, power draw <strong>could be higher</strong> than estimated.</li>
-</ul>
-<h3 id="4-the-motor-drivers-must-support-the-load"><strong>4. The Motor Drivers Must Support the Load</strong></h3>
-<ul>
-<li>The <strong>DRV8830 motor drivers</strong> support <strong>up to 1A per channel</strong>, which is <strong>sufficient</strong> for normal motor operation.</li>
-<li>At startup, motors may briefly exceed their rated current, requiring:</li>
-<li><strong>Bulk capacitors</strong> to prevent voltage dips.</li>
-<li><strong>PWM control</strong> to prevent excessive startup current draw.</li>
-</ul>
-<h3 id="5-the-microcontroller-uses-minimal-power"><strong>5. The Microcontroller Uses Minimal Power</strong></h3>
-<ul>
-<li>The <strong>PIC18LF26K22</strong> draws <strong>only ~25mA at 3.3V</strong>, consuming just <strong>0.08W</strong>.</li>
-<li>Its power consumption is negligible compared to the motors and drivers.</li>
-</ul>
-<hr />
-<h2 id="conclusions-recommendations"><strong>Conclusions &amp; Recommendations</strong></h2>
-<h3 id="1-use-a-power-supply-with-a-safety-margin"><strong>1. Use a Power Supply with a Safety Margin</strong></h3>
-<ul>
-<li>The estimated draw is <strong>~2.15A</strong>, so a <strong>12V, 3A power supply</strong> is recommended.</li>
-<li>If using a battery, it should provide <strong>at least 2.5A continuously</strong>.</li>
-</ul>
-<h3 id="2-consider-heat-dissipation-for-the-voltage-regulator"><strong>2. Consider Heat Dissipation for the Voltage Regulator</strong></h3>
-<ul>
-<li>The <strong>MIC4680-3.3YM</strong> will dissipate heat during step-down conversion.</li>
-<li>Ensure <strong>good PCB layout, airflow, or a heatsink</strong> if it gets hot.</li>
-</ul>
-<h3 id="3-monitor-performance-in-testing"><strong>3. Monitor Performance in Testing</strong></h3>
-<ul>
-<li>If motors <strong>stall often</strong> or the regulator <strong>overheats</strong>, adjustments may be needed.</li>
-<li><strong>Current measurement during real-world testing</strong> will confirm power budget estimates.</li>
-</ul>
 
 
 
