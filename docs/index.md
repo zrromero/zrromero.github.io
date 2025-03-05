@@ -7,11 +7,13 @@ tags:
 
 # Introduction
 
-Welcome to the repository of **Team 305** in **EGR314**!
+Welcome to the repository of Zachary Romero, member of [**Team 305**](https://asu-egr314-2025-s-305.github.io/) for EGR314, currently working on an exciting project to design and develop a **line-following robot**.
 
-## About Me
-
-Hello, my name is **Zachary Romero**, and I am a member of **Team 305**. Our team is currently working on an exciting project to design and develop a **line-following robot**.
+## Team Members
+- [Agilan Kumar's Datasheet](https://agilank24.github.io/)
+- [Andrew Rushton's Datasheet](https://arushton96.github.io/)
+- [David Diaz's Datasheet](https://daviddiaz01.github.io/)
+- [Zachary Romero's Datasheet](https://zrromero.github.io/)
 
 ## Project Overview
 
@@ -26,7 +28,9 @@ I am responsible for designing and implementing the **motor system** that powers
 
 ## Goals and Challenges
 
-Our primary goal is to ensure that the robot can:
+Our primary goal is focussed towards the younger audience, where they will create a line. We will need to ensure that the robot can:
 - Accurately follow lines in various conditions.
 - Navigate corners and curves smoothly.
+
+Our secondary goal is focussed towards an older audience, where we will create the line and they need to navigate it, to do this
 
