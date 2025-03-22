@@ -12,7 +12,7 @@
       
       
       
-        <link rel="canonical" href="https://embedded-systems-design.github.io/template_report/PICAPI/">
+        <link rel="canonical" href="https://embedded-systems-design.github.io/template_report/Motor%20API/">
       
       
         <link rel="prev" href="../ComponentSelection/">
@@ -29,7 +29,7 @@
 
     
       
-        <title>PICAPI - EGR314 Team 305 Motor Sysytem</title>
+        <title>Message Structures for PIC18LF26K22 Communication - EGR314 Team 305 Motor Sysytem</title>
       
     
     
@@ -92,6 +92,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#message-structures-for-pic18lf26k22-communication" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -123,7 +128,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              PICAPI
+              Message Structures for PIC18LF26K22 Communication
             
           </span>
         </div>
@@ -272,7 +277,7 @@
   
     
   
-  PICAPI
+  Message Structures for PIC18LF26K22 Communication
 
       </a>
     </li>
@@ -483,16 +488,76 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Message Structures for PIC18LF26K22 Communication
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    PICAPI
+    Message Structures for PIC18LF26K22 Communication
   </span>
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#movement-commands-from-esp32-to-pic18lf26k22" class="md-nav__link">
+    Movement Commands from ESP32 to PIC18LF26K22
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spi-communication-between-pic18lf26k22-and-btm9011epxuma1" class="md-nav__link">
+    SPI Communication between PIC18LF26K22 and BTM9011EPXUMA1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#speed-feedback-from-pic18lf26k22-to-esp32" class="md-nav__link">
+    Speed Feedback from PIC18LF26K22 to ESP32
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#general-handling-considerations" class="md-nav__link">
+    General Handling Considerations
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -621,6 +686,44 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#movement-commands-from-esp32-to-pic18lf26k22" class="md-nav__link">
+    Movement Commands from ESP32 to PIC18LF26K22
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spi-communication-between-pic18lf26k22-and-btm9011epxuma1" class="md-nav__link">
+    SPI Communication between PIC18LF26K22 and BTM9011EPXUMA1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#speed-feedback-from-pic18lf26k22-to-esp32" class="md-nav__link">
+    Speed Feedback from PIC18LF26K22 to ESP32
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#general-handling-considerations" class="md-nav__link">
+    General Handling Considerations
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -635,7 +738,7 @@
                   
 
   
-    <a href="https://github.com/embedded-systems-design/template_report/edit/main/docs/PICAPI.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/embedded-systems-design/template_report/edit/main/docs/Motor API.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -643,9 +746,166 @@
   
 
 
-  <h1>PICAPI</h1>
-
-
+<h1 id="message-structures-for-pic18lf26k22-communication">Message Structures for PIC18LF26K22 Communication</h1>
+<p>Effective communication between the ESP32, PIC18LF26K22, and the BTM9011EPXUMA1 motor drivers requires well-structured message formats. These message structures ensure seamless data exchange for movement commands, motor control via SPI, and speed feedback to the HMI.</p>
+<h2 id="movement-commands-from-esp32-to-pic18lf26k22">Movement Commands from ESP32 to PIC18LF26K22</h2>
+<p>The first message structure involves movement commands from the ESP32 to the PIC18LF26K22. This message includes a type identifier, a direction byte, and a speed level byte. The message type byte distinguishes movement commands from other message types. Direction values (0 for Stop, 1 for Left, 2 for Right, and 3 for Straight) are limited to four states for efficiency. The speed level byte ranges from 0 to 100, representing the speed percentage.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Byte</strong></th>
+<th><strong>Variable Name</strong></th>
+<th><strong>Data Type</strong></th>
+<th><strong>Min Value</strong></th>
+<th><strong>Max Value</strong></th>
+<th><strong>Example Value</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>message_type</td>
+<td>uint8_t</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>Message type identifier for movement</td>
+</tr>
+<tr>
+<td>2</td>
+<td>direction</td>
+<td>uint8_t</td>
+<td>0</td>
+<td>3</td>
+<td>2</td>
+<td>0=Stop, 1=Left, 2=Right, 3=Straight</td>
+</tr>
+<tr>
+<td>3</td>
+<td>speed_level</td>
+<td>uint8_t</td>
+<td>0</td>
+<td>100</td>
+<td>75</td>
+<td>Speed percentage (0-100%)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="spi-communication-between-pic18lf26k22-and-btm9011epxuma1">SPI Communication between PIC18LF26K22 and BTM9011EPXUMA1</h2>
+<p>The second message structure is tailored for SPI communication between the PIC18LF26K22 and the BTM9011EPXUMA1 motor driver. SPI requires a 16-bit command word that dictates the operation type. The motor ID byte indicates which motor is being controlled (left or right). The PWM value is a 16-bit number allowing precise speed adjustments, while status flags give quick feedback on motor states and error detection.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Byte</strong></th>
+<th><strong>Variable Name</strong></th>
+<th><strong>Data Type</strong></th>
+<th><strong>Min Value</strong></th>
+<th><strong>Max Value</strong></th>
+<th><strong>Example Value</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>command_word</td>
+<td>uint16_t</td>
+<td>0x0000</td>
+<td>0xFFFF</td>
+<td>0x0A01</td>
+<td>SPI command word including control bits</td>
+</tr>
+<tr>
+<td>2</td>
+<td>motor_id</td>
+<td>uint8_t</td>
+<td>1</td>
+<td>2</td>
+<td>1</td>
+<td>1 = Left Motor, 2 = Right Motor</td>
+</tr>
+<tr>
+<td>3</td>
+<td>pwm_value</td>
+<td>uint16_t</td>
+<td>0</td>
+<td>65535</td>
+<td>50000</td>
+<td>PWM value for motor speed (0-65535)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>status_flags</td>
+<td>uint8_t</td>
+<td>0</td>
+<td>255</td>
+<td>0x1F</td>
+<td>Status flags for feedback and error states</td>
+</tr>
+</tbody>
+</table>
+<h2 id="speed-feedback-from-pic18lf26k22-to-esp32">Speed Feedback from PIC18LF26K22 to ESP32</h2>
+<p>The final message structure covers speed feedback from the PIC18LF26K22 to the ESP32. This feedback is essential for performance monitoring and includes a message type byte, motor ID, speed value in RPM, and an error flag. The message type ensures correct handling by the ESP32. The speed value is capped at 5000 RPM to match the expected motor limits. The error flag (0 for No Error, 1 for Error) simplifies error detection.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Byte</strong></th>
+<th><strong>Variable Name</strong></th>
+<th><strong>Data Type</strong></th>
+<th><strong>Min Value</strong></th>
+<th><strong>Max Value</strong></th>
+<th><strong>Example Value</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>message_type</td>
+<td>uint8_t</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>Message type for speed feedback</td>
+</tr>
+<tr>
+<td>2</td>
+<td>motor_id</td>
+<td>uint8_t</td>
+<td>1</td>
+<td>2</td>
+<td>1</td>
+<td>1 = Left Motor, 2 = Right Motor</td>
+</tr>
+<tr>
+<td>3</td>
+<td>speed_value</td>
+<td>uint16_t</td>
+<td>0</td>
+<td>5000</td>
+<td>2750</td>
+<td>RPM of the motor</td>
+</tr>
+<tr>
+<td>4</td>
+<td>error_flag</td>
+<td>uint8_t</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0 = No Error, 1 = Error Detected</td>
+</tr>
+</tbody>
+</table>
+<h2 id="general-handling-considerations">General Handling Considerations</h2>
+<ul>
+<li>All messages must fit within the specified protocol (bytes 4-61) as per the overarching system message structure.</li>
+<li>Messages must be checked for proper framing, correct message type, and adherence to byte limits.</li>
+<li>Malformed or out-of-bound messages must be ignored.</li>
+<li>Every received message must be acknowledged or logged.</li>
+</ul>
+<p>This structured approach ensures consistency across systems, enabling reliable and verifiable communication between the PIC18LF26K22, motor drivers, and ESP32 HMI feedback system.</p>
 
 
 
