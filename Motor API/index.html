@@ -696,9 +696,10 @@
 
 
 <h1 id="message-structures-for-pic18lf26k22-communication">Message Structures for PIC18LF26K22 Communication</h1>
-<p>Effective communication between the ESP32, PIC18LF26K22, and the BTM9011EPXUMA1 motor drivers requires well-structured message formats. These message structures ensure seamless data exchange for movement commands, motor control via SPI, and speed feedback to the HMI.</p>
+<p>Effective communication between the ESP32, PIC18LF26K22, and BTM9011EPXUMA1 motor drivers requires well-structured message formats. These message structures ensure seamless data exchange for movement commands, SPI-based motor control, and speed feedback to the HMI.</p>
+<hr />
 <h2 id="movement-commands-from-esp32-to-pic18lf26k22">Movement Commands from ESP32 to PIC18LF26K22</h2>
-<p>The first message structure involves movement commands from the ESP32 to the PIC18LF26K22. The message type byte determines movement commands. Direction values (0 for Stop, 1 for Left, 2 for Right, and 3 for Straight) are limited to four states for efficiency.</p>
+<p>This message structure represents movement commands sent from the ESP32 to the PIC18LF26K22. The <code>Data</code> byte encodes direction commands using simple integer values. Each byte is structured for clarity and consistency with UART communication standards.</p>
 <table>
 <thead>
 <tr>
@@ -715,56 +716,57 @@
 <tr>
 <td>1</td>
 <td>Start</td>
-<td>uint8_t</td>
-<td>0X41</td>
-<td>0x41</td>
-<td>N/A</td>
-<td>Message type identifier for movement</td>
+<td><code>uint8_t</code></td>
+<td><code>0x41</code></td>
+<td><code>0x41</code></td>
+<td><code>0x41</code></td>
+<td>Start byte identifier (ASCII 'A')</td>
 </tr>
 <tr>
 <td>2</td>
 <td>Sender</td>
-<td>uint8_t</td>
-<td>0x03</td>
-<td>0x03</td>
-<td>N/A</td>
-<td>Adress for ZR</td>
+<td><code>uint8_t</code></td>
+<td><code>0x01</code></td>
+<td><code>0x04</code></td>
+<td><code>0x03</code></td>
+<td>Address for ESP32</td>
 </tr>
 <tr>
 <td>3</td>
 <td>Receiver</td>
-<td>uint8_t</td>
-<td>0x01</td>
-<td>0x04</td>
-<td>0x03</td>
-<td>Who needs to receive message</td>
+<td><code>uint8_t</code></td>
+<td><code>0x05</code></td>
+<td><code>0x05</code></td>
+<td><code>0x05</code></td>
+<td>Address for PIC18LF26K22</td>
 </tr>
 <tr>
 <td>4</td>
 <td>Data</td>
-<td>uint8_t</td>
-<td>0X00</td>
-<td>0x03</td>
-<td>1</td>
-<td>0=Stop, 1=Left, 2=Right, 3=Straight</td>
+<td><code>uint8_t</code></td>
+<td><code>0x00</code></td>
+<td><code>0x03</code></td>
+<td><code>0x01</code></td>
+<td>Direction: 0 = Stop, 1 = Forward, 2 = Right, 3 = Left</td>
 </tr>
 <tr>
 <td>5</td>
 <td>End</td>
-<td>uint8_t</td>
-<td>0x42</td>
-<td>0x42</td>
-<td>N/A</td>
-<td>N/A</td>
+<td><code>uint8_t</code></td>
+<td><code>0x42</code></td>
+<td><code>0x42</code></td>
+<td><code>0x42</code></td>
+<td>End byte identifier (ASCII 'B')</td>
 </tr>
 </tbody>
 </table>
+<hr />
 <h2 id="spi-communication-between-pic18lf26k22-and-btm9011epxuma1">SPI Communication between PIC18LF26K22 and BTM9011EPXUMA1</h2>
-<p>The second message structure is tailored for SPI communication between the PIC18LF26K22 and the BTM9011EPXUMA1 motor driver. SPI requires a 16-bit command word that dictates the operation type. The motor ID byte indicates which motor is being controlled (left or right). The PWM value is a 16-bit number allowing precise speed adjustments, while status flags give quick feedback on motor states and error detection.</p>
+<p>This structure defines a 16-bit SPI message between the PIC18LF26K22 and the BTM9011EPXUMA1 motor drivers. It enables control over motor behavior by assigning motor IDs, PWM values, and returning status flags for diagnostics.</p>
 <table>
 <thead>
 <tr>
-<th><strong>Byte</strong></th>
+<th><strong>Field</strong></th>
 <th><strong>Variable Name</strong></th>
 <th><strong>Data Type</strong></th>
 <th><strong>Min Value</strong></th>
@@ -777,43 +779,44 @@
 <tr>
 <td>1</td>
 <td>command_word</td>
-<td>uint16_t</td>
-<td>0x0000</td>
-<td>0xFFFF</td>
-<td>0x0A01</td>
-<td>SPI command word including control bits</td>
+<td><code>uint16_t</code></td>
+<td><code>0x0000</code></td>
+<td><code>0xFFFF</code></td>
+<td><code>0x0A01</code></td>
+<td>SPI command including motor control bits</td>
 </tr>
 <tr>
 <td>2</td>
 <td>motor_id</td>
-<td>uint8_t</td>
-<td>1</td>
-<td>2</td>
-<td>1</td>
-<td>1 = Left Motor, 2 = Right Motor</td>
+<td><code>uint8_t</code></td>
+<td><code>1</code></td>
+<td><code>2</code></td>
+<td><code>1</code></td>
+<td>1 = Left motor, 2 = Right motor</td>
 </tr>
 <tr>
 <td>3</td>
 <td>pwm_value</td>
-<td>uint16_t</td>
-<td>0</td>
-<td>65535</td>
-<td>50000</td>
-<td>PWM value for motor speed (0-65535)</td>
+<td><code>uint16_t</code></td>
+<td><code>0</code></td>
+<td><code>65535</code></td>
+<td><code>50000</code></td>
+<td>PWM speed value</td>
 </tr>
 <tr>
 <td>4</td>
 <td>status_flags</td>
-<td>uint8_t</td>
-<td>0</td>
-<td>255</td>
-<td>0x1F</td>
-<td>Status flags for feedback and error states</td>
+<td><code>uint8_t</code></td>
+<td><code>0x00</code></td>
+<td><code>0xFF</code></td>
+<td><code>0x1F</code></td>
+<td>Motor status and error flags</td>
 </tr>
 </tbody>
 </table>
+<hr />
 <h2 id="speed-feedback-from-pic18lf26k22-to-esp32">Speed Feedback from PIC18LF26K22 to ESP32</h2>
-<p>The final message structure covers speed feedback from the PIC18LF26K22 to the ESP32. </p>
+<p>This message structure allows the PIC18LF26K22 to report motor direction or other feedback to the ESP32. It mirrors the same format as the movement command message for consistency.</p>
 <table>
 <thead>
 <tr>
@@ -830,47 +833,47 @@
 <tr>
 <td>1</td>
 <td>Start</td>
-<td>uint8_t</td>
-<td>0X41</td>
-<td>0x41</td>
-<td>N/A</td>
-<td>Message type identifier for movement</td>
+<td><code>uint8_t</code></td>
+<td><code>0x41</code></td>
+<td><code>0x41</code></td>
+<td><code>0x41</code></td>
+<td>Start byte identifier (ASCII 'A')</td>
 </tr>
 <tr>
 <td>2</td>
 <td>Sender</td>
-<td>uint8_t</td>
-<td>0x03</td>
-<td>0x03</td>
-<td>N/A</td>
-<td>Adress for ZR</td>
+<td><code>uint8_t</code></td>
+<td><code>0x05</code></td>
+<td><code>0x05</code></td>
+<td><code>0x05</code></td>
+<td>Address for PIC18LF26K22</td>
 </tr>
 <tr>
 <td>3</td>
 <td>Receiver</td>
-<td>uint8_t</td>
-<td>0x01</td>
-<td>0x04</td>
-<td>0x03</td>
-<td>Who needs to receive message</td>
+<td><code>uint8_t</code></td>
+<td><code>0x01</code></td>
+<td><code>0x05</code></td>
+<td><code>0x03</code></td>
+<td>Address for ESP32</td>
 </tr>
 <tr>
 <td>4</td>
 <td>Data</td>
-<td>uint8_t</td>
-<td>0X00</td>
-<td>0x03</td>
-<td>1</td>
-<td>0=Stop, 1=Left, 2=Right, 3=Straight</td>
+<td><code>uint8_t</code></td>
+<td><code>0x00</code></td>
+<td><code>0x03</code></td>
+<td><code>0x01</code></td>
+<td>Feedback: 0 = Stop, 1 = Forward, 2 = Right, 3 = Left</td>
 </tr>
 <tr>
 <td>5</td>
 <td>End</td>
-<td>uint8_t</td>
-<td>0x42</td>
-<td>0x42</td>
-<td>N/A</td>
-<td>N/A</td>
+<td><code>uint8_t</code></td>
+<td><code>0x42</code></td>
+<td><code>0x42</code></td>
+<td><code>0x42</code></td>
+<td>End byte identifier (ASCII 'B')</td>
 </tr>
 </tbody>
 </table>
