@@ -1088,7 +1088,7 @@
 </tbody>
 </table>
 <h3 id="microcontroller"><strong>Microcontroller</strong></h3>
-<p>Since this subsystem will be using a PIC, the following table has been filled out to decide if the researched product can be used in the project.</p>
+<p>Since this subsystem will be using a PIC, the following table has been filled out to decide if the researched product can be used in the project. The PIC18LF26K22 has enough processing power in a compact size to suit our needs. It has plenty of extra I/O if needed and allows for 2 connections of any SPI, I2C or PWM combination. </p>
 <table>
 <thead>
 <tr>
@@ -1226,74 +1226,351 @@
 <h3 id="pic-test"><strong>PIC Test</strong></h3>
 <p><a class="glightbox" href="../images/PIC18LF26K22MPLAB.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="PICTest" src="../images/PIC18LF26K22MPLAB.png" /></a></p>
 <h1 id="power-budget">Power Budget</h1>
-<h2 id="power-budget-table">Power Budget Table</h2>
+<p>To estimate the power requirements for the project, I started by identifying all major active components that draw power, such as the motors, motor drivers, voltage regulator, and microcontroller. I researched the voltage and current needs for each part from their datasheets and added them to a power budget table. Each component was assigned to a power rail based on its voltage requirement, and I included a 25% safety margin to account for any unexpected spikes or future additions. I then selected appropriate voltage regulators for each rail and ensured that the external power sources could supply all the necessary current.</p>
+<p>From this analysis, I concluded that the +12V rail is the most demanding, mainly due to the two motors. However, the selected regulators and power sources have more than enough capacity to support the system, even under full load. The +3.3V rail, which powers the microcontroller and potentially other low-power devices, has plenty of headroom. Overall, the system is well-balanced, reliable, and has enough flexibility for future expansion if needed.</p>
+<p><strong>Team Number:</strong> 305 
+<strong>Project Name:</strong>  Line-Following Robot
+<strong>Team Member Names:</strong>  Zachary Romero
+<strong>Version:</strong>  1.2</p>
+<hr />
+<h2 id="a-list-all-major-components-excluding-passive-elements">A. List ALL Major Components (excluding passive elements)</h2>
 <table>
 <thead>
 <tr>
-<th><strong>Component</strong></th>
-<th><strong>Power Consumption</strong></th>
-<th><strong>Voltage</strong></th>
-<th><strong>Current (Amps)</strong></th>
-<th><strong>Power (W)</strong></th>
-<th><strong>Notes</strong></th>
+<th>All Major Components</th>
+<th>Component Name</th>
+<th>Part Number</th>
+<th>Supply Voltage Range</th>
+<th>#</th>
+<th>Absolute Max Current (mA)</th>
+<th>Total Current (mA)</th>
+<th>Unit</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>HC385G-302 Motor 1</strong></td>
-<td>12V DC Motor</td>
-<td>12V</td>
-<td>0.31A</td>
-<td>3.72W</td>
-<td>Rated at 12V, 0.31A motor</td>
+<td>DC Motor (Motor 1)</td>
+<td>HC385G-302 Motor 1</td>
+<td>HC385G-302</td>
+<td>+12V</td>
+<td>1</td>
+<td>310</td>
+<td>310</td>
+<td>mA</td>
 </tr>
 <tr>
-<td><strong>HC385G-302 Motor 2</strong></td>
-<td>12V DC Motor</td>
-<td>12V</td>
-<td>0.31A</td>
-<td>3.72W</td>
-<td>Same as Motor 1</td>
+<td>DC Motor (Motor 2)</td>
+<td>HC385G-302 Motor 2</td>
+<td>HC385G-302</td>
+<td>+12V</td>
+<td>1</td>
+<td>310</td>
+<td>310</td>
+<td>mA</td>
 </tr>
 <tr>
-<td><strong>BTM9011EPXUMA1 Motor Driver 1</strong></td>
-<td>Motor Driver</td>
-<td>12V (Motor)</td>
-<td>~0.02A (standby)</td>
-<td>0.24W</td>
-<td>Approximate power for low load; higher at full load</td>
+<td>Motor Driver 1</td>
+<td>BTM9011EPXUMA1 Driver 1</td>
+<td>BTM9011EPXUMA1</td>
+<td>+12V</td>
+<td>1</td>
+<td>20</td>
+<td>20</td>
+<td>mA</td>
 </tr>
 <tr>
-<td><strong>BTM9011EPXUMA1 Motor Driver 2</strong></td>
-<td>Motor Driver</td>
-<td>12V (Motor)</td>
-<td>~0.02A (standby)</td>
-<td>0.24W</td>
-<td>Approximate power for low load; higher at full load</td>
+<td>Motor Driver 2</td>
+<td>BTM9011EPXUMA1 Driver 2</td>
+<td>BTM9011EPXUMA1</td>
+<td>+12V</td>
+<td>1</td>
+<td>20</td>
+<td>20</td>
+<td>mA</td>
 </tr>
 <tr>
-<td><strong>MIC4680-3.3YM Voltage Regulator</strong></td>
-<td>Step-Down Regulator</td>
-<td>14.8V (Input)</td>
-<td>0.35A (for 3.3V load)</td>
-<td>1.16W</td>
-<td>Power consumed based on 3.3V conversion</td>
-</tr>
-<tr>
-<td><strong>PIC18LF26K22 Microcontroller</strong></td>
 <td>MCU</td>
-<td>3.3V</td>
-<td>0.04A</td>
-<td>0.13W</td>
-<td>Low current consumption (approx. 40mA)</td>
+<td>PIC18LF26K22</td>
+<td>PIC18LF26K22</td>
+<td>+3.3V</td>
+<td>1</td>
+<td>40</td>
+<td>40</td>
+<td>mA</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="b-assign-components-to-power-rails">B. Assign Components to Power Rails</h2>
+<h3 id="12v-power-rail">+12V Power Rail</h3>
+<table>
+<thead>
+<tr>
+<th>Component Name</th>
+<th>Part Number</th>
+<th>Supply Voltage Range</th>
+<th>#</th>
+<th>Absolute Max Current (mA)</th>
+<th>Total Current (mA)</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HC385G-302 Motor 1</td>
+<td>HC385G-302</td>
+<td>+12V</td>
+<td>1</td>
+<td>310</td>
+<td>310</td>
+<td>mA</td>
 </tr>
 <tr>
-<td><strong>Total Power Consumption</strong></td>
+<td>HC385G-302 Motor 2</td>
+<td>HC385G-302</td>
+<td>+12V</td>
+<td>1</td>
+<td>310</td>
+<td>310</td>
+<td>mA</td>
+</tr>
+<tr>
+<td>BTM9011EPXUMA1 Driver 1</td>
+<td>BTM9011EPXUMA1</td>
+<td>+12V</td>
+<td>1</td>
+<td>20</td>
+<td>20</td>
+<td>mA</td>
+</tr>
+<tr>
+<td>BTM9011EPXUMA1 Driver 2</td>
+<td>BTM9011EPXUMA1</td>
+<td>+12V</td>
+<td>1</td>
+<td>20</td>
+<td>20</td>
+<td>mA</td>
+</tr>
+<tr>
 <td></td>
 <td></td>
 <td></td>
-<td><strong>9.49W</strong></td>
 <td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Subtotal</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>660</strong></td>
+<td>mA</td>
+</tr>
+<tr>
+<td><strong>Safety Margin (25%)</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>165</strong></td>
+<td>mA</td>
+</tr>
+<tr>
+<td><strong>Total Required</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>825</strong></td>
+<td>mA</td>
+</tr>
+</tbody>
+</table>
+<h3 id="c1-regulator-for-12v-rail">c1. Regulator for +12V Rail</h3>
+<table>
+<thead>
+<tr>
+<th>Component Name</th>
+<th>Part Number</th>
+<th>Supply Voltage Range</th>
+<th>#</th>
+<th>Absolute Max Current (mA)</th>
+<th>Total Current (mA)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>12V Regulator</td>
+<td>LM7812</td>
+<td>+14.8V - 35V</td>
+<td>1</td>
+<td>1000</td>
+<td>1000</td>
+</tr>
+<tr>
+<td><strong>Remaining Current</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>175 mA</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="33v-power-rail">+3.3V Power Rail</h3>
+<table>
+<thead>
+<tr>
+<th>Component Name</th>
+<th>Part Number</th>
+<th>Supply Voltage Range</th>
+<th>#</th>
+<th>Absolute Max Current (mA)</th>
+<th>Total Current (mA)</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PIC18LF26K22 MCU</td>
+<td>PIC18LF26K22</td>
+<td>+3.3V</td>
+<td>1</td>
+<td>40</td>
+<td>40</td>
+<td>mA</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Subtotal</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>40</strong></td>
+<td>mA</td>
+</tr>
+<tr>
+<td><strong>Safety Margin</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>10</strong></td>
+<td>mA</td>
+</tr>
+<tr>
+<td><strong>Total Required</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>50</strong></td>
+<td>mA</td>
+</tr>
+</tbody>
+</table>
+<h3 id="c2-regulator-for-33v-rail">c2. Regulator for +3.3V Rail</h3>
+<table>
+<thead>
+<tr>
+<th>Component Name</th>
+<th>Part Number</th>
+<th>Supply Voltage Range</th>
+<th>#</th>
+<th>Absolute Max Current (mA)</th>
+<th>Total Current (mA)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3.3V Regulator (LDO)</td>
+<td>MIC4680-3.3YM</td>
+<td>+14.8V input</td>
+<td>1</td>
+<td>500</td>
+<td>500</td>
+</tr>
+<tr>
+<td><strong>Remaining Current</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>450 mA</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="c-confirm-all-regulator-currents-are-sufficient">C. Confirm All Regulator Currents Are Sufficient</h2>
+<p>All regulator outputs provide sufficient current with safety margins.</p>
+<hr />
+<h2 id="d-external-power-sources">D. External Power Source(s)</h2>
+<h3 id="external-power-source-1">External Power Source 1</h3>
+<table>
+<thead>
+<tr>
+<th>Component Name</th>
+<th>Part Number</th>
+<th>Supply Voltage Range</th>
+<th>Output Voltage</th>
+<th>Max Current (mA)</th>
+<th>Total Current (mA)</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Plug-in Wall Supply</td>
+<td>(e.g., MW122A-24B)</td>
+<td>110VAC</td>
+<td>+14.8V</td>
+<td>5000</td>
+<td>1075</td>
+<td>mA</td>
+</tr>
+</tbody>
+</table>
+<h4 id="power-rails-connected">Power Rails Connected</h4>
+<ul>
+<li>+12V Rail → LM7812 → 825mA</li>
+<li>+3.3V Rail → MIC4680-3.3YM → 50mA</li>
+</ul>
+<p><strong>Remaining Current on Power Supply 1:</strong> 3925 mA </p>
+<hr />
+<h2 id="e-battery-life-if-applicable">E. Battery Life (if applicable)</h2>
+<table>
+<thead>
+<tr>
+<th>Component Name</th>
+<th>Part Number</th>
+<th>Voltage</th>
+<th>Capacity (mAh)</th>
+<th>Required Current (mA)</th>
+<th>Estimated Battery Life</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Battery (if used)</td>
+<td>N/A</td>
+<td>12V</td>
+<td>500</td>
+<td>50</td>
+<td>10 hours (approx.)</td>
 </tr>
 </tbody>
 </table>
