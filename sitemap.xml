@@ -26,12 +26,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://embedded-systems-design.github.io/template_report/resources/</loc>
+         <loc>https://embedded-systems-design.github.io/template_report/dschematic/</loc>
          <lastmod>2025-05-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://embedded-systems-design.github.io/template_report/schematic/</loc>
+         <loc>https://embedded-systems-design.github.io/template_report/resources/</loc>
          <lastmod>2025-05-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
