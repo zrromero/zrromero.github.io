@@ -2,18 +2,18 @@
 [Download ZIP](images/EGR314_MotorSubsystem (5-5-2025 4-15-22 PM).zip)
 
 ## **Schematic Design**
-![image](images/EGR314MotorSystem.pdf)
+![SystemSchematic](images/EGR314MotorSystem.pdf)
 
 [View PDF](images/EGR314MotorSystem.pdf)
 
 ## **PCB**
 ### **PCB Design**
-![image](docs/images/PCBDesignTOP.png)
-![image](docs/images/PCBDesignBOTTOM.png)
+![PCBTop](docs/images/PCBDesignTOP.png)
+![PCBBottom](docs/images/PCBDesignBOTTOM.png)
 
 ### **Final PCB**
-![image](docs/images/MOTORPCBFRONT.png)
-![image](docs/images/MOTORPCBBACK.png)
+![PCBFront](docs/images/MOTORPCBFRONT.png)
+![PCBBack](docs/images/MOTORPCBBACK.png)
 
 [Download Gerber Files](docs/images/PCB.zip)
 
