@@ -716,7 +716,7 @@
 <h1 id="schematic-pcb"><strong>Schematic &amp; PCB</strong></h1>
 <p><a href="../images/EGR314_MotorSubsystem%20%285-5-2025%204-15-22%20PM%29.zip">Download ZIP</a></p>
 <h2 id="schematic-design"><strong>Schematic Design</strong></h2>
-<p><a class="glightbox" href="images/EGR314MotorSystem.jpeg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="SystemSchematic" src="images/EGR314MotorSystem.jpeg" /></a></p>
+<p><a class="glightbox" href="images/EGR314MotorSystem.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="SystemSchematic" src="images/EGR314MotorSystem.png" /></a></p>
 <p><a href="../images/EGR314MotorSystem.pdf">View PDF</a></p>
 <h2 id="pcb"><strong>PCB</strong></h2>
 <h3 id="pcb-design"><strong>PCB Design</strong></h3>
@@ -727,81 +727,33 @@
 <a class="glightbox" href="../images/MOTORPCBBACK.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="PCBBack" src="../images/MOTORPCBBACK.png" /></a></p>
 <p><a href="../images/PCB.zip">Download Gerber Files</a></p>
 <h2 id="schematic-functionality"><strong>Schematic Functionality</strong></h2>
-<p>Blah Blah Blah</p>
+<p><a class="glightbox" href="../images/FinalSystem.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="PCB" src="../images/FinalSystem.png" /></a>
+1. Main Control Using the PIC Microcontroller
+At the heart of the system is a PIC microcontroller, aligning with the specified requirement to use this microcontroller family for compatibility, availability, and existing development toolchains. The PIC handles all logic, coordination, and data processing tasks, enabling centralized control over system functions. This ensures consistent performance and simplifies firmware development and debugging.</p>
+<ol>
+<li>
+<p>Inter-System Communication via UART
+Communication with external systems is handled through an 8-pin header utilizing UART protocol, which satisfies the product requirement for simple, low-overhead serial communication. UART is a robust and well-supported protocol ideal for short-distance, point-to-point communication, making it suitable for sending commands or status information between subsystems. This design choice ensures interoperability, expandability, and ease of integration in a broader system.</p>
+</li>
+<li>
+<p>Feedback and Diagnostic Capability with Debug LEDs
+User needs for maintainability and transparency are addressed through the inclusion of four debug LEDs. These serve as visual indicators for changes in system status or errors, allowing developers or operators to quickly identify issues without the need for external debugging tools. The LEDs support real-time feedback, helping diagnose issues like communication failures or malformed commands, which enhances reliability and user trust in the system.</p>
+</li>
+<li>
+<p>Dual Voltage Power Distribution
+Power distribution is thoughtfully designed to satisfy both efficiency and compatibility. A 9V primary power source is stepped down to 3.3V via a switching regulator, which powers the microcontroller and logic-level components like SPI interfaces. This fulfills the voltage and power efficiency requirements while ensuring compatibility with the 3.3V logic levels used by the PIC microcontroller. Meanwhile, keeping certain high-current components—such as motors—on the 9V rail ensures adequate power delivery without brownouts, supporting the system's mechanical performance requirements.</p>
+</li>
+<li>
+<p>High-Speed, Logic-Level Motor Control via SPI
+The motor drivers are connected to the PIC microcontroller through SPI, a high-speed synchronous interface. This choice supports efficient motor command delivery with minimal latency and reduced overhead compared to asynchronous protocols. SPI also ensures that 3.3V logic signals from the PIC are correctly interpreted by the motor drivers, even while they are powered by 9V for sufficient torque and speed output. This dual compatibility fulfills both electrical and functional requirements—achieving fast, reliable motor control while ensuring proper logic-level interfacing.</p>
+</li>
+</ol>
 <h2 id="version-20"><strong>Version 2.0</strong></h2>
-<p>How we would update/change the design in future</p>
-<h1 id="power-budget">Power Budget</h1>
-<h2 id="power-budget-table">Power Budget Table</h2>
-<table>
-<thead>
-<tr>
-<th><strong>Component</strong></th>
-<th><strong>Power Consumption</strong></th>
-<th><strong>Voltage</strong></th>
-<th><strong>Current (Amps)</strong></th>
-<th><strong>Power (W)</strong></th>
-<th><strong>Notes</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>HC385G-302 Motor 1</strong></td>
-<td>12V DC Motor</td>
-<td>12V</td>
-<td>0.31A</td>
-<td>3.72W</td>
-<td>Rated at 12V, 0.31A motor</td>
-</tr>
-<tr>
-<td><strong>HC385G-302 Motor 2</strong></td>
-<td>12V DC Motor</td>
-<td>12V</td>
-<td>0.31A</td>
-<td>3.72W</td>
-<td>Same as Motor 1</td>
-</tr>
-<tr>
-<td><strong>BTM9011EPXUMA1 Motor Driver 1</strong></td>
-<td>Motor Driver</td>
-<td>12V (Motor)</td>
-<td>~0.02A (standby)</td>
-<td>0.24W</td>
-<td>Approximate power for low load; higher at full load</td>
-</tr>
-<tr>
-<td><strong>BTM9011EPXUMA1 Motor Driver 2</strong></td>
-<td>Motor Driver</td>
-<td>12V (Motor)</td>
-<td>~0.02A (standby)</td>
-<td>0.24W</td>
-<td>Approximate power for low load; higher at full load</td>
-</tr>
-<tr>
-<td><strong>MIC4680-3.3YM Voltage Regulator</strong></td>
-<td>Step-Down Regulator</td>
-<td>14.8V (Input)</td>
-<td>0.35A (for 3.3V load)</td>
-<td>1.16W</td>
-<td>Power consumed based on 3.3V conversion</td>
-</tr>
-<tr>
-<td><strong>PIC18LF26K22 Microcontroller</strong></td>
-<td>MCU</td>
-<td>3.3V</td>
-<td>0.04A</td>
-<td>0.13W</td>
-<td>Low current consumption (approx. 40mA)</td>
-</tr>
-<tr>
-<td><strong>Total Power Consumption</strong></td>
-<td></td>
-<td></td>
-<td></td>
-<td><strong>9.49W</strong></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<p>In developing a Version 2.0 of the hardware design, several key areas could be improved to enhance reliability, expandability, and ease of development. While the current schematic, featuring a PIC microcontroller, UART communication, SPI-controlled motor drivers, and a regulated 3.3V and 9V power supply, meets functional requirements, the development process revealed several opportunities for refinement.</p>
+<p>A major improvement would be allocating more time during the early stages to fully understand the interactions between subsystems, particularly communication protocols like SPI and UART. While datasheets provide essential guidance, they often don’t reveal practical integration challenges, such as timing issues, voltage mismatches, or signal integrity problems. In Version 1.0, much of the system integration had to be handled simultaneously, which made debugging more complex and time consuming.</p>
+<p>To address this in Version 2.0, we would emphasize breadboard prototyping of each subsystem using the exact components from the final design. This hands-on approach would allow incremental testing and validation, especially of SPI communication between the PIC microcontroller and multiple peripheral devices. SPI, while fast and reliable, can introduce complexity when multiple devices share the same bus. Testing these interactions early on could lead to a more robust final design, including improvements such as additional chip select lines, better signal routing, or isolation components to reduce noise.</p>
+<p>The most important takeaway for future improvements is this: test, test, test. If more time had been given to prototype each subsystem individually, particularly the motor drivers in this project, there would have been a better opportunity to program them correctly, understand their behavior, and determine if they were the right solution in the first place. Testing not only builds confidence in the system but also reveals hidden issues that can’t always be predicted through datasheets alone.</p>
+<p>Therefore, Version 2.0 should focus on early, thorough testing of each component and subsystem. This would result in a far more stable, functional, and reliable design.</p>
 
 
 
