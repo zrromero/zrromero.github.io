@@ -1,4 +1,4 @@
-# Message Structures for PIC18LF26K22 Communication
+# PIC & Motor API
 
 Effective communication between the ESP32, PIC18LF26K22, and BTM9011EPXUMA1 motor drivers requires well-structured message formats. These message structures ensure seamless data exchange for movement commands, SPI-based motor control, and speed feedback to the HMI.
 
