@@ -1,12 +1,27 @@
-# Motor Schematic
+# **Schematic & PCB**
+[Download ZIP](images/EGR314_MotorSubsystem (5-5-2025 4-15-22 PM).zip)
 
-![image](https://github.com/user-attachments/assets/2c6c429d-e915-404e-9891-2c69c7c8217d)
+## **Schematic Design**
+![image](images/EGR314MotorSystem.pdf)
 
+[View PDF](images/EGR314MotorSystem.pdf)
 
-[View PDF](https://github.com/zrromero/zrromero.github.io/blob/main/docs/images/EGR314MotorSystem.pdf)
+## **PCB**
+### **PCB Design**
+![image](docs/images/PCBDesignTOP.png)
+![image](docs/images/PCBDesignBOTTOM.png)
 
-[Download ZIP](https://github.com/zrromero/zrromero.github.io/blob/main/docs/images/EGR314_MotorSubsystem%20(2-28-2025%2011-38-45%20PM).zip)
+### **Final PCB**
+![image](docs/images/MOTORPCBFRONT.png)
+![image](docs/images/MOTORPCBBACK.png)
 
+[Download Gerber Files](docs/images/PCB.zip)
+
+## **Schematic Functionality**
+Blah Blah Blah
+
+## **Version 2.0**
+How we would update/change the design in future
 
 # Power Budget
 ## Power Budget Table
