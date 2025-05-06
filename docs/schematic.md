@@ -8,14 +8,14 @@
 
 ## **PCB**
 ### **PCB Design**
-![PCBTop](docs/images/PCBDesignTOP.jpeg)
-![PCBBottom](docs/images/PCBDesignBOTTOM.jpeg)
+![PCBTop](images/PCBDesignTOP.png)
+![PCBBottom](images/PCBDesignBOTTOM.png)
 
 ### **Final PCB**
-![PCBFront](docs/images/MOTORPCBFRONT.jpeg)
-![PCBBack](docs/images/MOTORPCBBACK.jpeg)
+![PCBFront](images/MOTORPCBFRONT.png)
+![PCBBack](images/MOTORPCBBACK.png)
 
-[Download Gerber Files](docs/images/PCB.zip)
+[Download Gerber Files](images/PCB.zip)
 
 ## **Schematic Functionality**
 Blah Blah Blah
