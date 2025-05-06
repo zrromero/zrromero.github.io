@@ -2,6 +2,7 @@
 
 ## **Major Components**
 For the motor drive subsystem, the main components will be the motors and the motor driver. We also need to think about the system's power source as well as regulating that power so our components do not burn. This system will be using a PIC Microcontroller from Microchip to communicate with the motor driver through Serial Peripheral Interface(SPI) or Inter-Integrated Circuit(I2C).
+
 | **Selected Product**     | **Rationale for Optimal Solution**                                              |
 |------------------|-----------------------------------------------------------------------------------------|
 | SE18K1ETY <br> ![BDC Motor 1](images/components/SE18K1ETY.jpg){: style="max-width: 250px; max-height: 250px;" } <br> Price: $9.28 <br> [Digikey](https://www.digikey.com/en/products/detail/nmb-technologies-corporation/SE18K1ETY/6021449) / [Datasheet](https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/734/SE18K.pdf) | This motor can reliably operate from 3.3V to 15V depending on the system needed. It will provide enough torque to unsure the robot moves smoothly. |
@@ -113,10 +114,12 @@ To estimate the power requirements for the project, I started by identifying all
 
 From this analysis, I concluded that the +12V rail is the most demanding, mainly due to the two motors. However, the selected regulators and power sources have more than enough capacity to support the system, even under full load. The +3.3V rail, which powers the microcontroller and potentially other low-power devices, has plenty of headroom. Overall, the system is well-balanced, reliable, and has enough flexibility for future expansion if needed.
 
-
 **Team Number:** 305 
+
 **Project Name:**  Line-Following Robot
+
 **Team Member Names:**  Zachary Romero
+
 **Version:**  1.2
 
 ---
