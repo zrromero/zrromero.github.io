@@ -19,6 +19,7 @@
 
 ## **Schematic Functionality**
 ![PCB](images/FinalSystem.png)
+
 1. Main Control Using the PIC Microcontroller
 At the heart of the system is a PIC microcontroller, aligning with the specified requirement to use this microcontroller family for compatibility, availability, and existing development toolchains. The PIC handles all logic, coordination, and data processing tasks, enabling centralized control over system functions. This ensures consistent performance and simplifies firmware development and debugging.
 
