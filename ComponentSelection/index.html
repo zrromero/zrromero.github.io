@@ -1183,6 +1183,78 @@
 </table>
 <h3 id="pic-test"><strong>PIC Test</strong></h3>
 <p><a class="glightbox" href="../images/PIC18LF26K22MPLAB.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="PICTest" src="../images/PIC18LF26K22MPLAB.png" /></a></p>
+<h1 id="power-budget">Power Budget</h1>
+<h2 id="power-budget-table">Power Budget Table</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Component</strong></th>
+<th><strong>Power Consumption</strong></th>
+<th><strong>Voltage</strong></th>
+<th><strong>Current (Amps)</strong></th>
+<th><strong>Power (W)</strong></th>
+<th><strong>Notes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>HC385G-302 Motor 1</strong></td>
+<td>12V DC Motor</td>
+<td>12V</td>
+<td>0.31A</td>
+<td>3.72W</td>
+<td>Rated at 12V, 0.31A motor</td>
+</tr>
+<tr>
+<td><strong>HC385G-302 Motor 2</strong></td>
+<td>12V DC Motor</td>
+<td>12V</td>
+<td>0.31A</td>
+<td>3.72W</td>
+<td>Same as Motor 1</td>
+</tr>
+<tr>
+<td><strong>BTM9011EPXUMA1 Motor Driver 1</strong></td>
+<td>Motor Driver</td>
+<td>12V (Motor)</td>
+<td>~0.02A (standby)</td>
+<td>0.24W</td>
+<td>Approximate power for low load; higher at full load</td>
+</tr>
+<tr>
+<td><strong>BTM9011EPXUMA1 Motor Driver 2</strong></td>
+<td>Motor Driver</td>
+<td>12V (Motor)</td>
+<td>~0.02A (standby)</td>
+<td>0.24W</td>
+<td>Approximate power for low load; higher at full load</td>
+</tr>
+<tr>
+<td><strong>MIC4680-3.3YM Voltage Regulator</strong></td>
+<td>Step-Down Regulator</td>
+<td>14.8V (Input)</td>
+<td>0.35A (for 3.3V load)</td>
+<td>1.16W</td>
+<td>Power consumed based on 3.3V conversion</td>
+</tr>
+<tr>
+<td><strong>PIC18LF26K22 Microcontroller</strong></td>
+<td>MCU</td>
+<td>3.3V</td>
+<td>0.04A</td>
+<td>0.13W</td>
+<td>Low current consumption (approx. 40mA)</td>
+</tr>
+<tr>
+<td><strong>Total Power Consumption</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td><strong>9.49W</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 
 
