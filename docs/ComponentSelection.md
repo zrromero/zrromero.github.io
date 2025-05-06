@@ -71,7 +71,7 @@ When choosing a power supply for this system, it's important to consider that th
 | L148A26-4-3-3WA3 <br> ![Power Supply 3](images/components/L148A26-4-3-3WA3.jpg){: style="max-width: 250px; max-height: 250px;" } | $33.44 | [Digikey](https://www.digikey.com/en/products/detail/dantona-industries/L148A26-4-3-3WA3/13692657) / [Datasheet](https://dantona.com/products/l148a26-4-3-3wa3/) | - High capacity <br> - Pre-assembled pack <br> - Long-lasting | - Most expensive <br> - Bulky design <br> - Overkill for project |
 
 ### **Microcontroller**
-Since this subsystem will be using a PIC, the following table has been filled out to decide if the researched product can be used in the project.
+Since this subsystem will be using a PIC, the following table has been filled out to decide if the researched product can be used in the project. The PIC18LF26K22 has enough processing power in a compact size to suit our needs. It has plenty of extra I/O if needed and allows for 2 connections of any SPI, I2C or PWM combination. 
 
 | ESP Info                                      | Answer |
 | --------------------------------------------- | ------ | 
@@ -108,16 +108,99 @@ Since this subsystem will be using a PIC, the following table has been filled ou
 ![PICTest](images/PIC18LF26K22MPLAB.png)
 
 
-
 # Power Budget
-## Power Budget Table
+To estimate the power requirements for the project, I started by identifying all major active components that draw power, such as the motors, motor drivers, voltage regulator, and microcontroller. I researched the voltage and current needs for each part from their datasheets and added them to a power budget table. Each component was assigned to a power rail based on its voltage requirement, and I included a 25% safety margin to account for any unexpected spikes or future additions. I then selected appropriate voltage regulators for each rail and ensured that the external power sources could supply all the necessary current.
 
-| **Component**                           | **Power Consumption**       | **Voltage**     | **Current (Amps)** | **Power (W)**       | **Notes**                                               |
-|-----------------------------------------|-----------------------------|-----------------|--------------------|---------------------|---------------------------------------------------------|
-| **HC385G-302 Motor 1**                 | 12V DC Motor                | 12V             | 0.31A              | 3.72W               | Rated at 12V, 0.31A motor                                 |
-| **HC385G-302 Motor 2**                 | 12V DC Motor                | 12V             | 0.31A              | 3.72W               | Same as Motor 1                                           |
-| **BTM9011EPXUMA1 Motor Driver 1**      | Motor Driver                | 12V (Motor)     | ~0.02A (standby)    | 0.24W               | Approximate power for low load; higher at full load    |
-| **BTM9011EPXUMA1 Motor Driver 2**      | Motor Driver                | 12V (Motor)     | ~0.02A (standby)    | 0.24W               | Approximate power for low load; higher at full load    |
-| **MIC4680-3.3YM Voltage Regulator**   | Step-Down Regulator         | 14.8V (Input)   | 0.35A (for 3.3V load) | 1.16W               | Power consumed based on 3.3V conversion                |
-| **PIC18LF26K22 Microcontroller**       | MCU                         | 3.3V            | 0.04A              | 0.13W               | Low current consumption (approx. 40mA)                 |
-| **Total Power Consumption**            |                             |                 |                    | **9.49W**            |                                                         |
+From this analysis, I concluded that the +12V rail is the most demanding, mainly due to the two motors. However, the selected regulators and power sources have more than enough capacity to support the system, even under full load. The +3.3V rail, which powers the microcontroller and potentially other low-power devices, has plenty of headroom. Overall, the system is well-balanced, reliable, and has enough flexibility for future expansion if needed.
+
+
+**Team Number:** 305 
+**Project Name:**  Line-Following Robot
+**Team Member Names:**  Zachary Romero
+**Version:**  1.2
+
+---
+
+## A. List ALL Major Components (excluding passive elements)
+
+| All Major Components       | Component Name           | Part Number            | Supply Voltage Range | # | Absolute Max Current (mA) | Total Current (mA) | Unit |
+|---------------------------|---------------------------|-------------------------|-----------------------|---|----------------------------|---------------------|------|
+| DC Motor (Motor 1)        | HC385G-302 Motor 1        | HC385G-302              | +12V                  | 1 | 310                        | 310                 | mA   |
+| DC Motor (Motor 2)        | HC385G-302 Motor 2        | HC385G-302              | +12V                  | 1 | 310                        | 310                 | mA   |
+| Motor Driver 1            | BTM9011EPXUMA1 Driver 1   | BTM9011EPXUMA1          | +12V                  | 1 | 20                         | 20                  | mA   |
+| Motor Driver 2            | BTM9011EPXUMA1 Driver 2   | BTM9011EPXUMA1          | +12V                  | 1 | 20                         | 20                  | mA   |
+| MCU                       | PIC18LF26K22              | PIC18LF26K22            | +3.3V                 | 1 | 40                         | 40                  | mA   |
+
+---
+
+## B. Assign Components to Power Rails
+
+### +12V Power Rail
+
+| Component Name         | Part Number          | Supply Voltage Range | # | Absolute Max Current (mA) | Total Current (mA) | Unit |
+|------------------------|----------------------|-----------------------|---|----------------------------|---------------------|------|
+| HC385G-302 Motor 1     | HC385G-302           | +12V                  | 1 | 310                        | 310                 | mA   |
+| HC385G-302 Motor 2     | HC385G-302           | +12V                  | 1 | 310                        | 310                 | mA   |
+| BTM9011EPXUMA1 Driver 1| BTM9011EPXUMA1       | +12V                  | 1 | 20                         | 20                  | mA   |
+| BTM9011EPXUMA1 Driver 2| BTM9011EPXUMA1       | +12V                  | 1 | 20                         | 20                  | mA   |
+|                        |                      |                       |   |                            |                     |      |
+| **Subtotal**           |                      |                       |   |                            | **660**             | mA   |
+| **Safety Margin (25%)**|                      |                       |   |                            | **165**             | mA   |
+| **Total Required**     |                      |                       |   |                            | **825**             | mA   |
+
+### c1. Regulator for +12V Rail
+
+| Component Name | Part Number | Supply Voltage Range | # | Absolute Max Current (mA) | Total Current (mA) |
+|----------------|-------------|-----------------------|---|----------------------------|---------------------|
+| 12V Regulator  | LM7812      | +14.8V - 35V          | 1 | 1000                       | 1000                |
+| **Remaining Current** |       |                       |   |                            | **175 mA**          |
+
+---
+
+### +3.3V Power Rail
+
+| Component Name     | Part Number      | Supply Voltage Range | # | Absolute Max Current (mA) | Total Current (mA) | Unit |
+|--------------------|------------------|-----------------------|---|----------------------------|---------------------|------|
+| PIC18LF26K22 MCU   | PIC18LF26K22     | +3.3V                 | 1 | 40                         | 40                  | mA   |
+|                    |                  |                       |   |                            |                     |      |
+| **Subtotal**       |                  |                       |   |                            | **40**              | mA   |
+| **Safety Margin**  |                  |                       |   |                            | **10**              | mA   |
+| **Total Required** |                  |                       |   |                            | **50**              | mA   |
+
+### c2. Regulator for +3.3V Rail
+
+| Component Name          | Part Number     | Supply Voltage Range | # | Absolute Max Current (mA) | Total Current (mA) |
+|--------------------------|----------------|-----------------------|---|----------------------------|---------------------|
+| 3.3V Regulator (LDO)     | MIC4680-3.3YM  | +14.8V input          | 1 | 500                        | 500                 |
+| **Remaining Current**    |                |                       |   |                            | **450 mA**          |
+
+---
+
+## C. Confirm All Regulator Currents Are Sufficient
+
+All regulator outputs provide sufficient current with safety margins.
+
+---
+
+## D. External Power Source(s)
+
+### External Power Source 1
+
+| Component Name           | Part Number         | Supply Voltage Range | Output Voltage | Max Current (mA) | Total Current (mA) | Unit |
+|--------------------------|---------------------|-----------------------|----------------|------------------|---------------------|------|
+| Plug-in Wall Supply      | (e.g., MW122A-24B)  | 110VAC                | +14.8V         | 5000             | 1075                | mA   |
+
+#### Power Rails Connected
+
+- +12V Rail → LM7812 → 825mA
+- +3.3V Rail → MIC4680-3.3YM → 50mA
+
+**Remaining Current on Power Supply 1:** 3925 mA 
+
+---
+
+## E. Battery Life (if applicable)
+
+| Component Name | Part Number | Voltage | Capacity (mAh) | Required Current (mA) | Estimated Battery Life |
+|----------------|-------------|---------|----------------|------------------------|-------------------------|
+| Battery (if used) | N/A      | 12V     | 500            | 50                     | 10 hours (approx.)      |
