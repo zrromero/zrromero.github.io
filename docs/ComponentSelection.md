@@ -88,15 +88,15 @@ Since this subsystem will be using a PIC, the following table has been filled ou
 
 | Module | # Available | Needed | Associated Pins (or * for any) |
 | ---------- | ----------- | ------ | ------------------------------ |
-| GPIO       | 28          | 4      | GPIORA0, GPIORA1, GPIORA2, GPIORA3|
+| GPIO       | 28          | 8     | GPIORA0, GPIORA1, GPIORA2, GPIORA3, GPIORA7, GPIORB0, GPIORC0, GPIORC2|
 | ADC        | ?           | 0      | N/A                            |
-| UART       | 2           | 1      | RX1C7, TX1C6                   |
-| SPI        | 2           | 2      | N/A                            |
-| I2C        | 2           | 2      | SCL1, SDA1, SCL2,SDA2          |
-| PWM        | ?           | 0      | ?                              |
-| ICSP       | ?           | 1      | ?                              |
+| UART       | 2           | 1     | RX1C7, TX1C6                   |
+| SPI        | 2           | 2      | SCK1, SDI1, SDO1, SCK2 SDI2,SDO2         |
+| I2C        | 2           | 2      | N/A         |
+| PWM        | ?           | 0      | N/A                               |
+| ICSP       | 1           | 1      | MCLR, PGC, PGD                |
 | ...        | ...         | ...    | ...                            |
 
 ### **PIC Test**
-![PICTest](https://github.com/user-attachments/assets/c151cff9-b367-4ed1-8b81-4ac2899e8ce1)
+![PICTest](images/PIC18LF26K22MPLAB.png)
 
